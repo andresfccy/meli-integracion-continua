@@ -1,0 +1,53 @@
+# Project Context
+
+1. The exercise is a full-stack seller dashboard for orders and buyer questions.
+2. Backend lives in `backend/` and currently serves seeded-account login with JWT access tokens for GraphQL reads, seeded role discovery, seller order list/detail routes, seller replies, backend-only buyer question creation, buyer-owned order reads, buyer-created questions, buyer answer approval, priority classification, Operations priority queue reads, Operations-protected manual priority review with manual notification deduplication override, the daily 00:00 UTC priority review scheduler, driver-backed console notification delivery, and read-only GraphQL dashboard composition on port 8080.
+3. Frontend lives in `frontend/` and currently uses Vite, React, and TypeScript for browser-session authentication, logout, protected routes, GraphQL-backed Seller order/question screens, seller reply commands, Buyer order/question/approval screens, and GraphQL-backed Operations priority queue screens with seller search coverage.
+4. The preview environment expects the frontend on port 3000 and host `0.0.0.0`.
+5. Browser API calls must derive backend URL by replacing frontend host port 3000 with 8080.
+6. The current backend module is `github.com/hackerrank/challenge` with Go 1.22.
+7. Frontend package management is pnpm after bootstrap.
+8. The project may use in-memory persistence.
+9. The required MVP includes orders, order items, buyers, questions, replies, priority sorting, notifications, seeded roles, lightweight seeded-account authentication with GraphQL-read JWTs, and seed data.
+10. The MVP business definition of question importance is documented in `specs/SPEC-003-priority-notifications.md`.
+11. `docs/plans/implementation-plan.md` is the primary entry point for current development status and task readiness.
+12. Reference-map entries outside `docs/plans/implementation-plan.md` are context guidance only; they are not progress validation.
+13. `docs/archive/PROJECT_FILES_INSTRUCTIONS.md` is deprecated initial platform guidance. Current `docs/README.md`, `docs/decisions/README.md`, `specs/`, and `frontend/package.json` override it when contradictory.
+14. Buyer-facing work now includes seeded Buyer login, buyer order reads, buyer-created questions from owned order detail, and buyer approval of seller answers. Seller notification channel driver delivery is implemented for manual and scheduled priority review.
+15. Order status remains separate from question lifecycle status; question lifecycle labels are visible only for existing questions.
+16. Buyer-created questions expose `lifecycleStatus=question_active`, seller replies move questions to `seller_answered` while status remains `open`, and buyer approval closes the lifecycle with `lifecycleStatus=closed` and resolved status.
+17. Notification driver delivery is scoped to seller notification events from priority review. Scheduled review remains acquire-once per UTC review window, while Operations manual review can intentionally resend same-day notification batches using manual override grouping keys. Buyer notification delivery is deferred until buyer notification rules are approved.
+
+## Reference Map
+
+| Topic | Primary source file | Secondary references | When it should be consulted |
+| ------ | ------ | ------ | ------ |
+| Project overview | `README.md` | `docs/README.md`, `docs/decisions/README.md`, `docs/plans/implementation-plan.md` | Before onboarding, running the project, or summarizing current MVP scope |
+| Project context map | `docs/README.md` | `README.md`, `docs/decisions/README.md`, `docs/plans/implementation-plan.md` | Before deciding which source-of-truth document to consult |
+| Seller orders | `specs/SPEC-001-seller-orders.md` | `specs/data-model.md`, `specs/api-contract.md`, `specs/frontend-contract.md`, `specs/test-plan.md`, `docs/decisions/README.md` | Before changing order visibility, order fields, filters, sorting, or order empty states |
+| Buyer questions | `specs/SPEC-002-buyer-questions.md` | `specs/data-model.md`, `specs/api-contract.md`, `specs/frontend-contract.md`, `specs/test-plan.md`, `docs/decisions/README.md` | Before changing question visibility, lifecycle, seller replies, or seeded buyer question scope |
+| Buyer-facing access | `specs/SPEC-002-buyer-questions.md` | `specs/frontend-contract.md`, `specs/api-contract.md`, `specs/data-model.md`, `docs/decisions/README.md` | Before adding buyer login, buyer order reads, buyer-created questions, or buyer approval of seller answers |
+| Priority and notifications | `specs/SPEC-003-priority-notifications.md` | `specs/data-model.md`, `specs/api-contract.md`, `specs/frontend-contract.md`, `specs/test-plan.md`, `docs/decisions/README.md` | Before sorting unresolved questions, changing priority logic, thresholds, Operations section behavior, or notifications |
+| Notification delivery drivers | `specs/SPEC-003-priority-notifications.md` | `docs/architecture/README.md`, `specs/data-model.md`, `specs/api-contract.md`, `specs/test-plan.md`, `docs/decisions/README.md` | Before adding channel driver ports, console delivery, Slack/SMS support, or notification dispatch behavior |
+| MVP authentication | `specs/frontend-contract.md` | `specs/data-model.md`, `specs/api-contract.md`, `specs/test-plan.md`, `docs/plans/implementation-plan.md`, `docs/decisions/README.md` | Before changing login, logout, protected routes, seeded credentials, or role-specific UI visibility |
+| Domain model | `specs/data-model.md` | `specs/SPEC-001-seller-orders.md`, `specs/SPEC-002-buyer-questions.md`, `specs/SPEC-003-priority-notifications.md`, `docs/development/CODE_STYLE.md`, `docs/architecture/README.md` | Before creating entities, fields, relationships, invariants, roles, or lifecycle states |
+| API contract | `specs/api-contract.md` | `docs/archive/PROJECT_FILES_INSTRUCTIONS.md`, `specs/test-plan.md`, feature specs | Before adding or changing backend endpoints, JSON fields, filters, sorting, status codes, or error behavior; use `docs/plans/implementation-plan.md` for implementation status |
+| Frontend behavior | `specs/frontend-contract.md` | `docs/archive/PROJECT_FILES_INSTRUCTIONS.md`, `frontend/package.json`, feature specs | Before implementing screens, filters, role state, API calls, or browser URL logic; use `docs/plans/implementation-plan.md` for implementation status |
+| Testing and validation | `specs/test-plan.md` | `docs/development/TESTING_GUIDELINES.md`, `frontend/package.json`, `backend/go.mod`, feature specs | Before marking a task complete or changing verification commands |
+| Implementation order and status | `docs/plans/implementation-plan.md` | `docs/plans/implementation-backlog.md`, `docs/development/DEVELOPMENT_WORKFLOW.md` | Before starting a new task, changing task dependencies, or validating current implementation progress |
+| Implementation backlog | `docs/plans/implementation-backlog.md` | `docs/plans/implementation-plan.md`, `README.md`, `docs/decisions/README.md` | Before reviewing phase-level roadmap or final documentation scope |
+| AI workflow | `AGENTS.md` | `docs/development/DEVELOPMENT_WORKFLOW.md`, `docs/development/CONTRIBUTING.md` | Before automated changes or multi-step implementation work |
+| Contribution workflow | `docs/development/CONTRIBUTING.md` | `AGENTS.md`, `docs/development/DEVELOPMENT_WORKFLOW.md`, `docs/development/CODE_STYLE.md` | Before scoping a change, choosing commit type, or preparing a contribution |
+| Development workflow | `docs/development/DEVELOPMENT_WORKFLOW.md` | `AGENTS.md`, `docs/development/CONTRIBUTING.md`, `docs/archive/BINACLE.md` | Before planning, implementing, testing, verifying, or documenting a task |
+| Architecture constraints | `docs/architecture/README.md` | `docs/development/CODE_STYLE.md`, `docs/decisions/README.md` | Before adding packages, dependencies, storage, or cross-layer abstractions |
+| Backend structure | `backend/README.md` | `backend/cmd/`, `backend/internal/bootstrap/`, `backend/internal/application/`, `backend/internal/adapters/`, `backend/internal/domain/` | Before changing backend startup, route wiring, GraphQL composition, service composition, domain behavior, adapters, or Go module assumptions |
+| Backend domain | `backend/internal/domain/` | `specs/data-model.md`, `docs/architecture/README.md`, `docs/development/CODE_STYLE.md` | Before changing domain entities, typed constants, invariants, priority metadata, notifications data, identity, or commerce rules |
+| Backend application and adapters | `backend/internal/application/`, `backend/internal/adapters/` | `backend/README.md`, `specs/api-contract.md`, `docs/plans/implementation-plan.md` | Before changing use cases, outbound ports, HTTP routes, in-memory persistence, CORS edge behavior, or request/response mapping |
+| Frontend structure | `frontend/README.md` | `frontend/src/`, `frontend/e2e/`, `frontend/package.json` | Before changing authentication UI, protected route shells, seller screens, Operations screens, frontend test setup, or E2E coverage |
+| Frontend tooling | `frontend/package.json` | `frontend/pnpm-lock.yaml`, `frontend/vite.config.ts`, `frontend/playwright.config.ts` | Before changing scripts, dependencies, package manager, dev server behavior, build, tests, or E2E tooling |
+| Deprecated platform setup | `docs/archive/PROJECT_FILES_INSTRUCTIONS.md` | `setup.sh`, `frontend/package.json`, `README.md` | Only for historical platform constraints; do not use it as active command or package-manager guidance when current docs disagree |
+| Coding conventions | `docs/development/CODE_STYLE.md` | `docs/development/CONTRIBUTING.md`, `AGENTS.md` | Before writing implementation code or introducing dependencies |
+| Decision history | `docs/decisions/README.md` | `docs/README.md`, `docs/plans/implementation-plan.md` | Before reversing prior choices or adding new architectural decisions |
+| Prompts binacle | `docs/archive/BINACLE.md` | `docs/archive/notes.md`, `docs/decisions/README.md`, `specs/` | Document suggested plans and keep track if they are already executed or need validation/human confirmation |
+| Testing command guidance | `docs/development/TESTING_GUIDELINES.md` | `specs/test-plan.md`, `docs/plans/implementation-plan.md`, `frontend/package.json`, `backend/go.mod` | Before running or changing verification commands |
+| Working notes | `docs/archive/notes.md` | `docs/archive/BINACLE.md`, `docs/decisions/README.md`, `specs/` | Before evaluating historical open ideas; notes are non-authoritative unless promoted into decisions or specs |
