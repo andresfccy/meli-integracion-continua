@@ -1,0 +1,126 @@
+schema {
+  query: Query
+}
+
+type Query {
+  viewer: Account!
+  sellerDashboard(sellerId: String!, filters: OrderFilters): SellerDashboard!
+  sellerOrderDetail(sellerId: String!, orderId: String!): Order!
+  buyerDashboard(buyerId: String!, filters: OrderFilters): BuyerDashboard!
+  buyerOrderDetail(buyerId: String!, orderId: String!): Order!
+  operationsPriorityQueue(filters: PriorityFilters): OperationsPriorityQueue!
+}
+
+input OrderFilters {
+  status: String
+  buyer: String
+  seller: String
+  dateFrom: String
+  dateTo: String
+}
+
+input PriorityFilters {
+  status: String
+  buyer: String
+  seller: String
+  dateFrom: String
+  dateTo: String
+  priorityClass: String
+}
+
+type Account {
+  id: String!
+  email: String!
+  displayName: String!
+  roles: [String!]!
+  sellerId: String
+  buyerId: String
+  opsTeamMemberId: String
+}
+
+type SellerDashboard {
+  orders: [Order!]!
+}
+
+type BuyerDashboard {
+  orders: [Order!]!
+}
+
+type OperationsPriorityQueue {
+  questions: [PriorityQueueItem!]!
+}
+
+type PriorityQueueItem {
+  question: Question!
+  order: OrderSummary!
+  seller: Seller!
+  buyer: Buyer!
+  waitingDays: Int!
+}
+
+type Order {
+  id: String!
+  sellerId: String!
+  buyerId: String!
+  seller: Seller!
+  buyer: Buyer!
+  status: String!
+  orderedAt: String!
+  items: [OrderItem!]!
+  total: Float!
+  questions: [Question!]!
+}
+
+type OrderSummary {
+  id: String!
+  status: String!
+  orderedAt: String!
+  total: Float!
+}
+
+type OrderItem {
+  id: String!
+  productId: String!
+  productName: String!
+  quantity: Int!
+  unitPrice: Float!
+}
+
+type Question {
+  id: String!
+  orderId: String!
+  buyerId: String!
+  orderItemId: String
+  body: String!
+  status: String!
+  lifecycleStatus: String!
+  createdAt: String!
+  buyerApprovedAt: String
+  resolvedAt: String
+  reply: Reply
+  priorityScore: Int!
+  priorityClass: String!
+  matchedUrgencyWords: [String!]!
+  priorityDictionaryVersion: String!
+  lastCategorizedAt: String!
+}
+
+type Reply {
+  id: String!
+  questionId: String!
+  sellerId: String!
+  body: String!
+  createdAt: String!
+}
+
+type Seller {
+  id: String!
+  name: String!
+  email: String!
+}
+
+type Buyer {
+  id: String!
+  name: String!
+  email: String!
+}
