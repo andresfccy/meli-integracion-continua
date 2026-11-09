@@ -33,7 +33,7 @@ This manifest tells an LLM which sources define truth and which explain or inter
 ## Snapshot metadata
 
 - Analysis date: 2026-07-30
-- Repository path used during analysis: `/Users/acardenas/Workspace/MeLi`
+- Repository path used during analysis: `repository root`
 - Git metadata: absent
 - Original cloud application: inaccessible
 - Backend verification: race-enabled tests and vet pass across domain, application, HTTP/GraphQL, scheduler, memory, and notifications

@@ -6,6 +6,8 @@ Define the MVP dashboard behavior for seller order visibility, seller replies to
 ## 2. Backend URL resolution
 Browser API calls must derive the backend URL from the frontend location by replacing frontend port `3000` with backend port `8080`. The frontend must not hard-code a different host for local preview.
 
+The academic Docker build explicitly sets `VITE_API_MODE=same-origin`. In this opt-in mode, browser requests use the frontend origin and Nginx proxies API requests over the internal Compose network. The default local behavior above is unchanged.
+
 ## 3. Views and sections
 
 ### Login view

@@ -34,6 +34,7 @@ export const setSession = (session: Session) => sessionStorage.setItem(key, JSON
 export const clearSession = () => sessionStorage.removeItem(key);
 
 export function backendUrl() {
+  if (import.meta.env.VITE_API_MODE === 'same-origin') return window.location.origin;
   const url = new URL(window.location.href);
   url.port = '8080';
   url.pathname = '';

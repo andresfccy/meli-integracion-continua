@@ -1,0 +1,28 @@
+name: meli-ci
+services:
+  api:
+    build: ./backend
+    networks: [application]
+    healthcheck:
+      test: [CMD, wget, -qO-, http://127.0.0.1:8080/api/health]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    restart: unless-stopped
+  web:
+    build: ./frontend
+    ports: ["127.0.0.1:3000:8080"]
+    networks: [application]
+    depends_on:
+      api:
+        condition: service_healthy
+        restart: true
+    healthcheck:
+      test: [CMD, wget, -qO-, http://127.0.0.1:8080/healthz]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    restart: unless-stopped
+networks:
+  application:
+    driver: bridge

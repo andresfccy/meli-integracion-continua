@@ -1,8 +1,21 @@
-import {beforeEach,describe,expect,it,vi} from 'vitest';
+import {afterEach,beforeEach,describe,expect,it,vi} from 'vitest';
 import {api,backendUrl,clearSession,getSession,setSession} from './session';
 
 describe('browser session auth',()=>{
-  beforeEach(()=>clearSession());
+  beforeEach(()=>{clearSession();vi.unstubAllEnvs();});
+  afterEach(()=>{vi.unstubAllGlobals();vi.unstubAllEnvs();});
+  it('uses the web origin only in same-origin mode',()=>{
+    vi.stubEnv('VITE_API_MODE','same-origin');
+    expect(backendUrl()).toBe('http://localhost:3000');
+  });
+  it('preserves path and authorization through the same-origin proxy',async()=>{
+    vi.stubEnv('VITE_API_MODE','same-origin');
+    setSession({user:{id:'u',email:'a@b.co',displayName:'Ana',roles:['buyer']},accessToken:'signed-token'});
+    const fetchMock=vi.fn().mockResolvedValue({ok:true,text:async()=>'{}'});
+    vi.stubGlobal('fetch',fetchMock);
+    await api('/graphql');
+    expect(fetchMock).toHaveBeenCalledWith('http://localhost:3000/graphql',expect.objectContaining({headers:expect.objectContaining({Authorization:'Bearer signed-token'})}));
+  });
   it('persists authentication only in sessionStorage',()=>{
     const session={user:{id:'u',email:'a@b.co',displayName:'Ana',roles:['buyer']},accessToken:'token'};
     setSession(session);

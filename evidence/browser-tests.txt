@@ -1,0 +1,8 @@
+
+Running 3 tests using 1 worker
+
+  ✓  1 [chromium] › e2e/smoke.spec.ts:14:3 › documented role flows › rejects invalid credentials and logs in a seeded seller (577ms)
+  ✓  2 [chromium] › e2e/smoke.spec.ts:27:3 › documented role flows › buyer asks, seller answers, and buyer approves without page reloads (1.2s)
+  ✓  3 [chromium] › e2e/smoke.spec.ts:48:3 › documented role flows › Operations filters sellers by name, email and id and runs a manual review (5.5s)
+
+  3 passed (8.6s)
