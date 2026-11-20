@@ -1,0 +1,64 @@
+[
+    {
+        "Name": "meli-check-jenkins-meli-entrega2-2_application",
+        "Id": "5ec8f437d8cd4096730a8407a47ab0c26e83252985906fb3d3b2ec85107803ad",
+        "Created": "2026-11-20T20:09:20.812824503Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv4": true,
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.21.0.0/16",
+                    "Gateway": "172.21.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Options": {
+            "com.docker.network.enable_ipv4": "true",
+            "com.docker.network.enable_ipv6": "false"
+        },
+        "Labels": {
+            "com.docker.compose.config-hash": "084febe55664da636d4a151857f0c733238e235db3147d01d317919a1cfd4ce7",
+            "com.docker.compose.network": "application",
+            "com.docker.compose.project": "meli-check-jenkins-meli-entrega2-2",
+            "com.docker.compose.version": "5.7.1"
+        },
+        "Containers": {
+            "9c1d1d5085356e37c6e2c36dd13d995d3a101f3d582ff79c0ed8f19f1685ed15": {
+                "Name": "meli-check-jenkins-meli-entrega2-2-web-1",
+                "EndpointID": "2baafc3958b822aef916ea7e99cad4abfa58dfbdbd259900cf9670d9fd7254b4",
+                "MacAddress": "0e:2c:0a:a9:23:cb",
+                "IPv4Address": "172.21.0.3/16",
+                "IPv6Address": ""
+            },
+            "b36cf19e6e29e67ee4f0e73da802d735fa31309830f4526fd2a652e102a2564f": {
+                "Name": "meli-check-jenkins-meli-entrega2-2-api-1",
+                "EndpointID": "5a36dbbf09ed9d429105b02021b2b65bafa94c62f3c473928df92e347bfdcc81",
+                "MacAddress": "d2:80:f4:41:a7:ad",
+                "IPv4Address": "172.21.0.2/16",
+                "IPv6Address": ""
+            }
+        },
+        "Status": {
+            "IPAM": {
+                "Subnets": {
+                    "172.21.0.0/16": {
+                        "IPsInUse": 5,
+                        "DynamicIPsAvailable": 65531
+                    }
+                }
+            }
+        }
+    }
+]

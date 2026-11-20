@@ -1,0 +1,434 @@
+Started by user Andres Cardenas
+Obtained Jenkinsfile from git https://github.com/andresfccy/meli-integracion-continua.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on docker-local in /home/jenkins/agent/workspace/meli-entrega2
+[Pipeline] {
+[Pipeline] timeout
+Timeout set to expire in 30 min
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential github-meli-readonly
+Cloning the remote Git repository
+Cloning repository https://github.com/andresfccy/meli-integracion-continua.git
+ > git init /home/jenkins/agent/workspace/meli-entrega2 # timeout=10
+Fetching upstream changes from https://github.com/andresfccy/meli-integracion-continua.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --force --progress -- https://github.com/andresfccy/meli-integracion-continua.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+Checking out Revision 30f6eed84a5b3558addea28b4521c0eeadc8ffd6 (refs/remotes/origin/feature/two-containers)
+Commit message: "docs(ci): verify SCM access and local Jenkins pipeline runs"
+First time build. Skipping changelog.
+[Pipeline] script
+[Pipeline] {
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] sh
++ sh scripts/ci.sh build
+ Image meli-check-jenkins-meli-entrega2-2-web Building 
+ Image meli-check-jenkins-meli-entrega2-2-api Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.11kB done
+#1 DONE 0.0s
+
+#2 [web internal] load build definition from Dockerfile
+#2 transferring dockerfile: 683B done
+#2 DONE 0.0s
+
+#3 [api internal] load build definition from Dockerfile
+#3 transferring dockerfile: 497B done
+#3 DONE 0.0s
+
+#4 [web internal] load metadata for docker.io/library/node:24-alpine@sha256:a34ab6d7f6f4813f4d0c5469d74685604b962fbdbf5793a7bc7b4998ecb867c8
+#4 DONE 0.0s
+
+#5 [api internal] load metadata for docker.io/library/golang:1.26-alpine@sha256:87c65a688975c0b1d4585d204874c45ca78354670e3a5f11368c5a492303d696
+#5 DONE 0.0s
+
+#6 [api internal] load metadata for docker.io/library/alpine:3.23@sha256:469c9ea410b9215eaee7976ba6c0639039b444be8e5d638f7abbada189971eb2
+#6 DONE 0.0s
+
+#7 [web internal] load metadata for docker.io/library/nginx:stable-alpine@sha256:583b7f2fce1cdb8da5ad5c39ebd3c33b98b87d493190e548bdee1fa8c619c311
+#7 DONE 0.0s
+
+#8 [api internal] load .dockerignore
+#8 transferring context: 131B done
+#8 DONE 0.0s
+
+#9 [web internal] load .dockerignore
+#9 transferring context: 131B done
+#9 DONE 0.0s
+
+#10 [web build 1/7] FROM docker.io/library/node:24-alpine@sha256:a34ab6d7f6f4813f4d0c5469d74685604b962fbdbf5793a7bc7b4998ecb867c8
+#10 resolve docker.io/library/node:24-alpine@sha256:a34ab6d7f6f4813f4d0c5469d74685604b962fbdbf5793a7bc7b4998ecb867c8 0.0s done
+#10 DONE 0.0s
+
+#11 [api stage-1 1/4] FROM docker.io/library/alpine:3.23@sha256:469c9ea410b9215eaee7976ba6c0639039b444be8e5d638f7abbada189971eb2
+#11 resolve docker.io/library/alpine:3.23@sha256:469c9ea410b9215eaee7976ba6c0639039b444be8e5d638f7abbada189971eb2 0.0s done
+#11 DONE 0.0s
+
+#12 [api build 1/7] FROM docker.io/library/golang:1.26-alpine@sha256:87c65a688975c0b1d4585d204874c45ca78354670e3a5f11368c5a492303d696
+#12 resolve docker.io/library/golang:1.26-alpine@sha256:87c65a688975c0b1d4585d204874c45ca78354670e3a5f11368c5a492303d696 0.0s done
+#12 DONE 0.0s
+
+#13 [web stage-1 1/4] FROM docker.io/library/nginx:stable-alpine@sha256:583b7f2fce1cdb8da5ad5c39ebd3c33b98b87d493190e548bdee1fa8c619c311
+#13 resolve docker.io/library/nginx:stable-alpine@sha256:583b7f2fce1cdb8da5ad5c39ebd3c33b98b87d493190e548bdee1fa8c619c311 0.0s done
+#13 DONE 0.0s
+
+#14 [web internal] load build context
+#14 transferring context: 99.83kB done
+#14 DONE 0.0s
+
+#15 [api internal] load build context
+#15 transferring context: 83.22kB done
+#15 DONE 0.0s
+
+#16 [web stage-1 2/4] COPY nginx.conf /etc/nginx/nginx.conf.template
+#16 CACHED
+
+#17 [web build 2/7] WORKDIR /src
+#17 CACHED
+
+#18 [web build 6/7] COPY . .
+#18 CACHED
+
+#19 [web stage-1 3/4] COPY --chmod=755 docker-entrypoint.sh /usr/local/bin/web-entrypoint.sh
+#19 CACHED
+
+#20 [web build 4/7] COPY package.json pnpm-lock.yaml ./
+#20 CACHED
+
+#21 [web build 7/7] RUN pnpm run build
+#21 CACHED
+
+#22 [web build 3/7] RUN npm install --global pnpm@10.12.1
+#22 CACHED
+
+#23 [web build 5/7] RUN pnpm install --frozen-lockfile
+#23 CACHED
+
+#24 [web stage-1 4/4] COPY --from=build /src/dist /usr/share/nginx/html
+#24 CACHED
+
+#25 [api build 2/7] WORKDIR /src
+#25 CACHED
+
+#26 [api stage-1 2/4] RUN adduser -D -u 10001 app
+#26 CACHED
+
+#27 [api build 7/7] RUN CGO_ENABLED=0 go build -trimpath -o /out/api ./cmd/api
+#27 CACHED
+
+#28 [api stage-1 3/4] WORKDIR /app
+#28 CACHED
+
+#29 [api build 3/7] COPY go.mod go.sum ./
+#29 CACHED
+
+#30 [api build 4/7] RUN go mod download
+#30 CACHED
+
+#31 [api build 5/7] COPY cmd ./cmd
+#31 CACHED
+
+#32 [api build 6/7] COPY internal ./internal
+#32 CACHED
+
+#33 [api stage-1 4/4] COPY --from=build /out/api ./api
+#33 CACHED
+
+#34 [api] exporting to image
+#34 exporting layers done
+#34 exporting manifest sha256:cdf73b49a0aa43ac1fd19b7200ad2a0f607a778013a53ddff58bb909b9a58a0d done
+#34 exporting config sha256:eb142a9e07136a76c034b99aa4468d3ff32c6935ac3e97ec670d5ce791483b0b done
+#34 exporting attestation manifest sha256:efbfd59cfc3fc078b8d184c91a6e7af2134a8c69882e8bfca2ad562e96538e45 done
+#34 exporting manifest list sha256:dd2d7ed63cb3969802eb458e184e037ddc69a12cb2ffaaba04c60b1f73641ff6
+#34 exporting manifest list sha256:dd2d7ed63cb3969802eb458e184e037ddc69a12cb2ffaaba04c60b1f73641ff6 done
+#34 naming to docker.io/library/meli-check-jenkins-meli-entrega2-2-api:latest done
+#34 unpacking to docker.io/library/meli-check-jenkins-meli-entrega2-2-api:latest done
+#34 DONE 0.1s
+
+#35 [web] exporting to image
+#35 exporting layers done
+#35 exporting manifest sha256:f28d1684d041ba89faee25a994ebe4231ae0b8ab592e9e766b04d4cb0f8bf0be done
+#35 exporting config sha256:8a136354e7ef438d10e90c8e9a39dd39ecdede6b6db812f1ed46f42b5ad9723f done
+#35 exporting attestation manifest sha256:c47ffe7841035af526cee07b78897ca224f6483296faf76cfe02d80b0f10cd90 done
+#35 exporting manifest list sha256:2a484a0101bde2269a172bdd41604edef975876dd307bc7cef15933cf730d037 done
+#35 naming to docker.io/library/meli-check-jenkins-meli-entrega2-2-web:latest done
+#35 unpacking to docker.io/library/meli-check-jenkins-meli-entrega2-2-web:latest done
+#35 DONE 0.1s
+
+#36 [api] resolving provenance for metadata file
+#36 DONE 0.0s
+
+#37 [web] resolving provenance for metadata file
+#37 DONE 0.0s
+ Image meli-check-jenkins-meli-entrega2-2-api Built 
+ Image meli-check-jenkins-meli-entrega2-2-web Built 
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+ > git config remote.origin.url https://github.com/andresfccy/meli-integracion-continua.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/feature/two-containers^{commit} # timeout=10
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 30f6eed84a5b3558addea28b4521c0eeadc8ffd6 # timeout=10
+[Pipeline] sh
++ sh scripts/ci.sh test
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from backend.Dockerfile
+#1 transferring dockerfile: 241B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.26-alpine@sha256:87c65a688975c0b1d4585d204874c45ca78354670e3a5f11368c5a492303d696
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 131B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/golang:1.26-alpine@sha256:87c65a688975c0b1d4585d204874c45ca78354670e3a5f11368c5a492303d696
+#4 resolve docker.io/library/golang:1.26-alpine@sha256:87c65a688975c0b1d4585d204874c45ca78354670e3a5f11368c5a492303d696 done
+#4 DONE 0.0s
+
+#5 [2/6] WORKDIR /src
+#5 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 4.64kB done
+#6 DONE 0.0s
+
+#7 [3/6] COPY go.mod go.sum ./
+#7 DONE 0.0s
+
+#8 [4/6] RUN go mod download
+#8 DONE 0.9s
+
+#9 [5/6] COPY . .
+#9 DONE 0.0s
+
+#10 [6/6] RUN go test ./... && go vet ./...
+#10 3.377 ?   	seller-dashboard/cmd/api	[no test files]
+#10 3.377 ?   	seller-dashboard/internal/adapters/inbound/graphql	[no test files]
+#10 3.476 ok  	seller-dashboard/internal/adapters/inbound/http	0.007s
+#10 3.476 ok  	seller-dashboard/internal/adapters/inbound/scheduler	0.004s
+#10 3.476 ok  	seller-dashboard/internal/adapters/outbound/notifications	0.004s
+#10 3.476 ok  	seller-dashboard/internal/adapters/outbound/persistence/memory	0.002s
+#10 3.476 ok  	seller-dashboard/internal/application	0.002s
+#10 3.476 ?   	seller-dashboard/internal/bootstrap	[no test files]
+#10 3.476 ok  	seller-dashboard/internal/domain	0.002s
+#10 DONE 4.2s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 1.6s done
+#11 exporting manifest sha256:6ed8a0669add73a3a9a6e3bd97d6fa1d4d5ecb63b5d12f255052fb4ba7fefce4 done
+#11 exporting config sha256:3c9a4c6515b34f0ee42976ae13b934e4f7e7f860e9ac212bdd52f4030f128cb0 done
+#11 exporting attestation manifest sha256:7e58e5386025d290b870ef418f85d58a21bb1f7e69634424eb0223db966fc11b done
+#11 exporting manifest list sha256:a6314f6f46101e81f49fc88443cf1e13976177b141f7f7dd5151bcaf143b43db done
+#11 naming to moby-dangling@sha256:a6314f6f46101e81f49fc88443cf1e13976177b141f7f7dd5151bcaf143b43db done
+#11 unpacking to moby-dangling@sha256:a6314f6f46101e81f49fc88443cf1e13976177b141f7f7dd5151bcaf143b43db
+#11 unpacking to moby-dangling@sha256:a6314f6f46101e81f49fc88443cf1e13976177b141f7f7dd5151bcaf143b43db 0.3s done
+#11 DONE 2.0s
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from frontend.Dockerfile
+#1 transferring dockerfile: 316B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:24-alpine@sha256:a34ab6d7f6f4813f4d0c5469d74685604b962fbdbf5793a7bc7b4998ecb867c8
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 131B done
+#3 DONE 0.0s
+
+#4 [1/7] FROM docker.io/library/node:24-alpine@sha256:a34ab6d7f6f4813f4d0c5469d74685604b962fbdbf5793a7bc7b4998ecb867c8
+#4 resolve docker.io/library/node:24-alpine@sha256:a34ab6d7f6f4813f4d0c5469d74685604b962fbdbf5793a7bc7b4998ecb867c8 done
+#4 DONE 0.0s
+
+#5 [2/7] WORKDIR /src
+#5 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 1.44kB done
+#6 DONE 0.0s
+
+#7 [3/7] RUN npm install --global pnpm@10.12.1
+#7 2.697 
+#7 2.697 added 1 package in 3s
+#7 2.697 
+#7 2.697 1 package is looking for funding
+#7 2.697   run `npm fund` for details
+#7 2.698 npm notice
+#7 2.698 npm notice New major version of npm available! 11.19.1 -> 12.2.3
+#7 2.698 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.3
+#7 2.698 npm notice To update run: npm install -g npm@12.2.3
+#7 2.698 npm notice
+#7 DONE 2.8s
+
+#8 [4/7] COPY package.json pnpm-lock.yaml ./
+#8 DONE 0.0s
+
+#9 [5/7] RUN pnpm install --frozen-lockfile
+#9 0.309 Lockfile is up to date, resolution step is skipped
+#9 0.324 Progress: resolved 1, reused 0, downloaded 0, added 0
+#9 0.353 Packages: +116
+#9 0.353 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#9 1.325 Progress: resolved 116, reused 0, downloaded 16, added 16
+#9 1.519 
+#9 1.519    ╭──────────────────────────────────────────╮
+#9 1.519    │                                          │
+#9 1.519    │   Update available! 10.12.1 → 12.21.0.   │
+#9 1.519    │   Changelog: https://pnpm.io/v/12.21.0   │
+#9 1.519    │     To update, run: pnpm add -g pnpm     │
+#9 1.519    │                                          │
+#9 1.519    ╰──────────────────────────────────────────╯
+#9 1.519 
+#9 2.324 Progress: resolved 116, reused 0, downloaded 31, added 31
+#9 3.324 Progress: resolved 116, reused 0, downloaded 37, added 37
+#9 4.325 Progress: resolved 116, reused 0, downloaded 47, added 47
+#9 5.328 Progress: resolved 116, reused 0, downloaded 50, added 50
+#9 6.329 Progress: resolved 116, reused 0, downloaded 55, added 55
+#9 7.329 Progress: resolved 116, reused 0, downloaded 62, added 62
+#9 8.330 Progress: resolved 116, reused 0, downloaded 70, added 70
+#9 9.330 Progress: resolved 116, reused 0, downloaded 76, added 76
+#9 10.33 Progress: resolved 116, reused 0, downloaded 82, added 82
+#9 11.33 Progress: resolved 116, reused 0, downloaded 94, added 94
+#9 12.33 Progress: resolved 116, reused 0, downloaded 107, added 107
+#9 13.33 Progress: resolved 116, reused 0, downloaded 109, added 109
+#9 15.03 Progress: resolved 116, reused 0, downloaded 110, added 109
+#9 16.04 Progress: resolved 116, reused 0, downloaded 110, added 110
+#9 17.04 Progress: resolved 116, reused 0, downloaded 111, added 111
+#9 21.20 Progress: resolved 116, reused 0, downloaded 112, added 111
+#9 22.20 Progress: resolved 116, reused 0, downloaded 114, added 114
+#9 25.27 Progress: resolved 116, reused 0, downloaded 115, added 114
+#9 26.21 Progress: resolved 116, reused 0, downloaded 116, added 116, done
+#9 26.25 
+#9 26.25 dependencies:
+#9 26.25 + @vitejs/plugin-react 6.0.3
+#9 26.25 + concurrently 10.0.3
+#9 26.25 + react 19.2.7
+#9 26.25 + react-dom 19.2.7
+#9 26.25 + typescript 7.0.2
+#9 26.25 + vite 8.1.5
+#9 26.25 
+#9 26.25 devDependencies:
+#9 26.25 + @playwright/test 1.61.1
+#9 26.25 + @types/react 19.2.17
+#9 26.25 + @types/react-dom 19.2.3
+#9 26.25 + jsdom 29.1.1
+#9 26.25 + vitest 4.1.10
+#9 26.25 
+#9 26.27 Done in 26.1s using pnpm v10.12.1
+#9 DONE 26.5s
+
+#10 [6/7] COPY . .
+#10 DONE 0.0s
+
+#11 [7/7] RUN pnpm run test-frontend && pnpm run build
+#11 0.240 
+#11 0.240 > seller-dashboard-mvp@1.0.0 test-frontend /src
+#11 0.240 > vitest run
+#11 0.240 
+#11 0.418 
+#11 0.419 [1m[30m[46m RUN [49m[39m[22m [36mv4.1.10 [39m[90m/src[39m
+#11 0.419 
+#11 0.880  [32m✓[39m src/auth/routing.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+#11 0.892  [32m✓[39m src/auth/session.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+#11 0.896 
+#11 0.897 [2m Test Files [22m [1m[32m2 passed[39m[22m[90m (2)[39m
+#11 0.897 [2m      Tests [22m [1m[32m7 passed[39m[22m[90m (7)[39m
+#11 0.897 [2m   Start at [22m 20:09:10
+#11 0.897 [2m   Duration [22m 472ms[2m (transform 47ms, setup 0ms, import 62ms, tests 8ms, environment 702ms)[22m
+#11 0.898 
+#11 1.134 
+#11 1.134 > seller-dashboard-mvp@1.0.0 build /src
+#11 1.134 > tsc -b && vite build
+#11 1.134 
+#11 1.347 vite v8.1.5 building client environment for production...
+#11 1.352 [2Ktransforming...✓ 24 modules transformed.
+#11 1.447 rendering chunks...
+#11 1.492 computing gzip size...
+#11 1.496 dist/index.html                   0.16 kB │ gzip:  0.14 kB
+#11 1.496 dist/assets/index-wIoKR3mz.css    4.55 kB │ gzip:  1.70 kB
+#11 1.496 dist/assets/index-o6wjEwJ5.js   210.20 kB │ gzip: 64.64 kB
+#11 1.496 
+#11 1.497 ✓ built in 149ms
+#11 DONE 1.5s
+
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 2.6s done
+#12 exporting manifest sha256:6def20c3af6a4b1a5f9b7cc9e4e14f1c6c9af175273aa6728863ab66d968ff2d done
+#12 exporting config sha256:65f9b67e7dcd682a483a02a6bba5f72fb5f9e755e9b81cc1b302c686d87bb064 done
+#12 exporting attestation manifest sha256:d73b378d6a24677a865a56e8a30f47e3068f94f083676f7b2a9cdc4c62602f6b done
+#12 exporting manifest list sha256:80b7d3e3c1dee841458fb106a3f8a5d634bed3a891db18961af2915ead683f93 done
+#12 naming to moby-dangling@sha256:80b7d3e3c1dee841458fb106a3f8a5d634bed3a891db18961af2915ead683f93 done
+#12 unpacking to moby-dangling@sha256:80b7d3e3c1dee841458fb106a3f8a5d634bed3a891db18961af2915ead683f93
+#12 unpacking to moby-dangling@sha256:80b7d3e3c1dee841458fb106a3f8a5d634bed3a891db18961af2915ead683f93 1.2s done
+#12 DONE 3.8s
+[Pipeline] script
+[Pipeline] {
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] sh
++ sh scripts/ci.sh smoke
+ Network meli-check-jenkins-meli-entrega2-2_application Creating 
+ Network meli-check-jenkins-meli-entrega2-2_application Created 
+ Container meli-check-jenkins-meli-entrega2-2-api-1 Creating 
+ Container meli-check-jenkins-meli-entrega2-2-api-1 Created 
+ Container meli-check-jenkins-meli-entrega2-2-web-1 Creating 
+ Container meli-check-jenkins-meli-entrega2-2-web-1 Created 
+ Container meli-check-jenkins-meli-entrega2-2-api-1 Starting 
+ Container meli-check-jenkins-meli-entrega2-2-api-1 Started 
+ Container meli-check-jenkins-meli-entrega2-2-api-1 Waiting 
+ Container meli-check-jenkins-meli-entrega2-2-api-1 Healthy 
+ Container meli-check-jenkins-meli-entrega2-2-web-1 Starting 
+ Container meli-check-jenkins-meli-entrega2-2-web-1 Started 
+ Container meli-check-jenkins-meli-entrega2-2-web-1 Waiting 
+ Container meli-check-jenkins-meli-entrega2-2-api-1 Waiting 
+ Container meli-check-jenkins-meli-entrega2-2-api-1 Healthy 
+ Container meli-check-jenkins-meli-entrega2-2-web-1 Healthy 
+NAME                                       IMAGE                                    COMMAND                  SERVICE   CREATED          STATUS                    PORTS
+meli-check-jenkins-meli-entrega2-2-api-1   meli-check-jenkins-meli-entrega2-2-api   "./api"                  api       12 seconds ago   Up 11 seconds (healthy)   8080/tcp
+meli-check-jenkins-meli-entrega2-2-web-1   meli-check-jenkins-meli-entrega2-2-web   "/usr/local/bin/web-…"   web       12 seconds ago   Up 5 seconds (healthy)    127.0.0.1:55002->8080/tcp
+{"status":"ok"}
+{"status":"ok"}
+ok
+Two healthy services communicate by api service name and through the web proxy.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] sh
++ sh scripts/ci.sh cleanup
+time="2026-11-20T20:09:33Z" level=warning msg="Warning: No resource found to remove for project \"meli-check-jenkins-meli-entrega2-2\"."
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] echo
+Application image builds and all required tests passed.
+[Pipeline] archiveArtifacts
+Archiving artifacts
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

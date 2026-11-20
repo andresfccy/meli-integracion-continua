@@ -1,0 +1,8 @@
+{
+  "result": "SUCCESS",
+  "duration_ms": "63618",
+  "timestamp_ms": "1795205310050",
+  "source": "Original Pipeline from GitHub SCM; no local archive/harness",
+  "revision": "30f6eed",
+  "trigger": "manual bootstrap"
+}

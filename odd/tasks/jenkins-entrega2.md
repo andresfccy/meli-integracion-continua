@@ -1,5 +1,5 @@
 # Jenkins entrega 2
-Branch: feature/two-containers. Delivery: ask-on-risk; local commits only. Forecast: 900 authored lines plus report.
+Branch: feature/two-containers. Delivery: exception-ok (user-approved size:exception); SSH feature push and conditional main merge authorized. Forecast: 900 authored lines plus report.
 Checks: container builds, Go/Vitest, isolated Compose communication, Jenkins when executor consent exists, visual document QA.
 
 ## Specs
@@ -321,3 +321,11 @@ SCM job build1 failed before execution because remote branch has no Jenkinsfile;
 Build2 final SUCCESS (50.334s); Build1 controlled FAILURE (47.377s). Do not use transient build.xml result while running: only final console/build state counts. Evidence collected from Jenkins with serialized console annotations stripped, source archive/hash/adaptation recorded. Independent verifier confirmed56 source files byte-identical to ac45ad9 and Build/Test/post unchanged; GitHub checkout, secret pattern scan, two healthy services and no remaining test containers/network passed. No secrets read by verifier. Cleanup log overwritten by second post cleanup is a documented evidence limitation, not a failed cleanup. Primary SCM and automatic trigger remain blocked by unpublished Jenkinsfile under explicit no-push instruction.
 
 Report updated to9pages and every page visually inspected; PDF byte-verified. Parent spot checks confirmed FAILURE/FAILURE/SUCCESS final results and two-service network. RDD remains off; no push. Candidate archive retained in agent /tmp for manual reruns; removed if agent is recreated, requiring explicit re-transfer.
+
+### L14 Publication authorization
+Sí, autorizo hacer push de la rama feature/two-containers al repositorio del proyecto. Continuá con la ejecución del Jenkinsfile desde SCM y verificá el disparo automático, cuando todo salga bien mergea a main.
+Sí, autorizo usar mi clave SSH local para hacer push de feature/two-containers al repositorio del proyecto. Verificá el Jenkinsfile desde SCM y el disparo automático; si todo pasa, mergeá a main.
+Sí, autorizo size:exception. Publicá feature/two-containers completa usando mi clave SSH, verificá el Jenkinsfile desde SCM y el disparo automático; si todo pasa, mergeá a main.
+SSH push completed d9de619..30f6eed to feature/two-containers; no force. Original SCM build2 started manually to register declared polling. Next evidence-bearing documentation commit will test automatic PollSCM; main merge remains conditional.
+
+Original SCM build2 final SUCCESS. Actual Jenkinsfile from GitHub revision30f6eed; no harness. Evidence scm/build-2*. Next commit is a genuine documentation/evidence update used to verify PollSCM, not an empty synthetic commit.

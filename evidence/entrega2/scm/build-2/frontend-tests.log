@@ -1,0 +1,138 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from frontend.Dockerfile
+#1 transferring dockerfile: 316B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:24-alpine@sha256:a34ab6d7f6f4813f4d0c5469d74685604b962fbdbf5793a7bc7b4998ecb867c8
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 131B done
+#3 DONE 0.0s
+
+#4 [1/7] FROM docker.io/library/node:24-alpine@sha256:a34ab6d7f6f4813f4d0c5469d74685604b962fbdbf5793a7bc7b4998ecb867c8
+#4 resolve docker.io/library/node:24-alpine@sha256:a34ab6d7f6f4813f4d0c5469d74685604b962fbdbf5793a7bc7b4998ecb867c8 done
+#4 DONE 0.0s
+
+#5 [2/7] WORKDIR /src
+#5 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 1.44kB done
+#6 DONE 0.0s
+
+#7 [3/7] RUN npm install --global pnpm@10.12.1
+#7 2.697 
+#7 2.697 added 1 package in 3s
+#7 2.697 
+#7 2.697 1 package is looking for funding
+#7 2.697   run `npm fund` for details
+#7 2.698 npm notice
+#7 2.698 npm notice New major version of npm available! 11.19.1 -> 12.2.3
+#7 2.698 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.3
+#7 2.698 npm notice To update run: npm install -g npm@12.2.3
+#7 2.698 npm notice
+#7 DONE 2.8s
+
+#8 [4/7] COPY package.json pnpm-lock.yaml ./
+#8 DONE 0.0s
+
+#9 [5/7] RUN pnpm install --frozen-lockfile
+#9 0.309 Lockfile is up to date, resolution step is skipped
+#9 0.324 Progress: resolved 1, reused 0, downloaded 0, added 0
+#9 0.353 Packages: +116
+#9 0.353 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#9 1.325 Progress: resolved 116, reused 0, downloaded 16, added 16
+#9 1.519 
+#9 1.519    ╭──────────────────────────────────────────╮
+#9 1.519    │                                          │
+#9 1.519    │   Update available! 10.12.1 → 12.21.0.   │
+#9 1.519    │   Changelog: https://pnpm.io/v/12.21.0   │
+#9 1.519    │     To update, run: pnpm add -g pnpm     │
+#9 1.519    │                                          │
+#9 1.519    ╰──────────────────────────────────────────╯
+#9 1.519 
+#9 2.324 Progress: resolved 116, reused 0, downloaded 31, added 31
+#9 3.324 Progress: resolved 116, reused 0, downloaded 37, added 37
+#9 4.325 Progress: resolved 116, reused 0, downloaded 47, added 47
+#9 5.328 Progress: resolved 116, reused 0, downloaded 50, added 50
+#9 6.329 Progress: resolved 116, reused 0, downloaded 55, added 55
+#9 7.329 Progress: resolved 116, reused 0, downloaded 62, added 62
+#9 8.330 Progress: resolved 116, reused 0, downloaded 70, added 70
+#9 9.330 Progress: resolved 116, reused 0, downloaded 76, added 76
+#9 10.33 Progress: resolved 116, reused 0, downloaded 82, added 82
+#9 11.33 Progress: resolved 116, reused 0, downloaded 94, added 94
+#9 12.33 Progress: resolved 116, reused 0, downloaded 107, added 107
+#9 13.33 Progress: resolved 116, reused 0, downloaded 109, added 109
+#9 15.03 Progress: resolved 116, reused 0, downloaded 110, added 109
+#9 16.04 Progress: resolved 116, reused 0, downloaded 110, added 110
+#9 17.04 Progress: resolved 116, reused 0, downloaded 111, added 111
+#9 21.20 Progress: resolved 116, reused 0, downloaded 112, added 111
+#9 22.20 Progress: resolved 116, reused 0, downloaded 114, added 114
+#9 25.27 Progress: resolved 116, reused 0, downloaded 115, added 114
+#9 26.21 Progress: resolved 116, reused 0, downloaded 116, added 116, done
+#9 26.25 
+#9 26.25 dependencies:
+#9 26.25 + @vitejs/plugin-react 6.0.3
+#9 26.25 + concurrently 10.0.3
+#9 26.25 + react 19.2.7
+#9 26.25 + react-dom 19.2.7
+#9 26.25 + typescript 7.0.2
+#9 26.25 + vite 8.1.5
+#9 26.25 
+#9 26.25 devDependencies:
+#9 26.25 + @playwright/test 1.61.1
+#9 26.25 + @types/react 19.2.17
+#9 26.25 + @types/react-dom 19.2.3
+#9 26.25 + jsdom 29.1.1
+#9 26.25 + vitest 4.1.10
+#9 26.25 
+#9 26.27 Done in 26.1s using pnpm v10.12.1
+#9 DONE 26.5s
+
+#10 [6/7] COPY . .
+#10 DONE 0.0s
+
+#11 [7/7] RUN pnpm run test-frontend && pnpm run build
+#11 0.240 
+#11 0.240 > seller-dashboard-mvp@1.0.0 test-frontend /src
+#11 0.240 > vitest run
+#11 0.240 
+#11 0.418 
+#11 0.419 [1m[30m[46m RUN [49m[39m[22m [36mv4.1.10 [39m[90m/src[39m
+#11 0.419 
+#11 0.880  [32m✓[39m src/auth/routing.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+#11 0.892  [32m✓[39m src/auth/session.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+#11 0.896 
+#11 0.897 [2m Test Files [22m [1m[32m2 passed[39m[22m[90m (2)[39m
+#11 0.897 [2m      Tests [22m [1m[32m7 passed[39m[22m[90m (7)[39m
+#11 0.897 [2m   Start at [22m 20:09:10
+#11 0.897 [2m   Duration [22m 472ms[2m (transform 47ms, setup 0ms, import 62ms, tests 8ms, environment 702ms)[22m
+#11 0.898 
+#11 1.134 
+#11 1.134 > seller-dashboard-mvp@1.0.0 build /src
+#11 1.134 > tsc -b && vite build
+#11 1.134 
+#11 1.347 vite v8.1.5 building client environment for production...
+#11 1.352 [2Ktransforming...✓ 24 modules transformed.
+#11 1.447 rendering chunks...
+#11 1.492 computing gzip size...
+#11 1.496 dist/index.html                   0.16 kB │ gzip:  0.14 kB
+#11 1.496 dist/assets/index-wIoKR3mz.css    4.55 kB │ gzip:  1.70 kB
+#11 1.496 dist/assets/index-o6wjEwJ5.js   210.20 kB │ gzip: 64.64 kB
+#11 1.496 
+#11 1.497 ✓ built in 149ms
+#11 DONE 1.5s
+
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 2.6s done
+#12 exporting manifest sha256:6def20c3af6a4b1a5f9b7cc9e4e14f1c6c9af175273aa6728863ab66d968ff2d done
+#12 exporting config sha256:65f9b67e7dcd682a483a02a6bba5f72fb5f9e755e9b81cc1b302c686d87bb064 done
+#12 exporting attestation manifest sha256:d73b378d6a24677a865a56e8a30f47e3068f94f083676f7b2a9cdc4c62602f6b done
+#12 exporting manifest list sha256:80b7d3e3c1dee841458fb106a3f8a5d634bed3a891db18961af2915ead683f93 done
+#12 naming to moby-dangling@sha256:80b7d3e3c1dee841458fb106a3f8a5d634bed3a891db18961af2915ead683f93 done
+#12 unpacking to moby-dangling@sha256:80b7d3e3c1dee841458fb106a3f8a5d634bed3a891db18961af2915ead683f93
+#12 unpacking to moby-dangling@sha256:80b7d3e3c1dee841458fb106a3f8a5d634bed3a891db18961af2915ead683f93 1.2s done
+#12 DONE 3.8s
