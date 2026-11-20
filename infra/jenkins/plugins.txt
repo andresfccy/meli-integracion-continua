@@ -1,0 +1,6 @@
+git
+github
+workflow-aggregator
+pipeline-stage-view
+docker-workflow
+credentials-binding

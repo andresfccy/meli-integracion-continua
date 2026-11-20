@@ -1,0 +1,25 @@
+name: meli-jenkins-entrega2
+
+services:
+  jenkins:
+    build:
+      context: .
+    user: jenkins
+    init: true
+    ports:
+      - "127.0.0.1:8081:8080"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    environment:
+      JAVA_OPTS: "-Xms256m -Xmx1g"
+    # Local planning limits, not measured consumption or production sizing.
+    cpus: 2.0
+    mem_limit: 2g
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+
+volumes:
+  jenkins_home:
