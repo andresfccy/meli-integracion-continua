@@ -1,0 +1,14 @@
+Nov 20, 2026 7:42:16 PM org.jenkinsci.remoting.engine.WorkDirManager initializeWorkDir
+INFO: Using /home/jenkins/agent/remoting as a remoting work directory
+Nov 20, 2026 7:42:16 PM org.jenkinsci.remoting.engine.WorkDirManager setupLogging
+INFO: Both error and output logs will be printed to /home/jenkins/agent/remoting
+Nov 20, 2026 7:42:16 PM hudson.remoting.Launcher createEngine
+INFO: Setting up agent: docker-local
+Nov 20, 2026 7:42:16 PM hudson.remoting.Engine startEngine
+INFO: Using Remoting version: 3396.ve02b_5cde31b_2
+Nov 20, 2026 7:42:16 PM org.jenkinsci.remoting.engine.WorkDirManager initializeWorkDir
+INFO: Using /home/jenkins/agent/remoting as a remoting work directory
+Nov 20, 2026 7:42:16 PM hudson.remoting.Launcher$CuiListener status
+INFO: WebSocket connection open
+Nov 20, 2026 7:42:16 PM hudson.remoting.Launcher$CuiListener status
+INFO: Connected

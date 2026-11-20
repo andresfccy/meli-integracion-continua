@@ -1,0 +1,2 @@
+/meli-jenkins-entrega2-jenkins-1 user=jenkins privileged=false security=["no-new-privileges:true"] ports={"8080/tcp":[{"HostIp":"127.0.0.1","HostPort":"8081"}]} mounts=/var/jenkins_home(rw=true) 
+/meli-jenkins-entrega2-docker-agent-1 user=jenkins privileged=false security=["no-new-privileges:true"] ports={} mounts=/run/jenkins-agent(rw=false) /home/jenkins/.jenkins(rw=true) /home/jenkins/agent(rw=true) /var/run/docker.sock(rw=true) 

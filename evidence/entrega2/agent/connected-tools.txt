@@ -1,0 +1,9 @@
+uid=1000(jenkins) gid=1000(jenkins) groups=1000(jenkins),0(root)
+openjdk version "21.0.13" 2026-10-20 LTS
+OpenJDK Runtime Environment Temurin-21.0.13+9 (build 21.0.13+9-LTS)
+OpenJDK 64-Bit Server VM Temurin-21.0.13+9 (build 21.0.13+9-LTS, mixed mode)
+git version 2.47.3
+Client=29.10.0 Server=29.9.3
+Docker Compose version v5.7.1
+github.com/docker/buildx v0.39.0 360040a78d6113dc84e5d4dcdf0f438e1be7a41f
+600 1000:1000

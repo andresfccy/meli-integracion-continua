@@ -32,3 +32,7 @@ Sin bloqueadores reproducidos. Configuración nginx predeterminada idéntica byt
 ## Agente autorizado
 
 [Verificación real](agent/verification-summary.json): imagen construida, UID1000, Java21.0.13, Git2.47.3, Docker29.10.0, Compose5.7.1 y Buildx0.39.0. Consulta autorizada al motor29.9.3 correcta. Arranque sin secreto rechazado con salida2. Contenedores de prueba efímeros, sin agente permanente ni nodo conectado. [Formulario privado pendiente](agent/admin-setup-pending.jpg), sin credenciales.
+
+## Conexión del agente observada
+
+El 20 de noviembre de 2026 a las 14:42 America/Bogota Jenkins mostró **Agent is connected**. [Captura](agent/node-connected.jpg), [log WebSocket](agent/connection.log), [herramientas y permisos](agent/connected-tools.txt) y [aislamiento real](agent/connected-isolation.txt). Un ejecutor, etiqueta docker exclusiva; controlador sin socket; agente sin puertos publicados. Las capturas anteriores conservan el estado histórico. Job, SCM, builds y trigger siguen pendientes; no hubo acceso GitHub.

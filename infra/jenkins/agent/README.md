@@ -40,10 +40,10 @@ Se pasa `-secret @/run/jenkins-agent/secret`, no el valor del secreto en variabl
 docker compose -f infra/jenkins/compose.yaml -f infra/jenkins/compose.agent.yaml stop docker-agent
 ```
 
-No borrar volúmenes ni ejecutar prune. La autorización del agente no autoriza GitHub, push, uso de SSH ni exposición pública. La ejecución del pipeline sigue pendiente hasta disponer del nodo conectado y SCM autorizado.
+No borrar volúmenes ni ejecutar prune. La autorización del agente no autoriza GitHub, push, uso de SSH ni exposición pública. La ejecución del pipeline sigue pendiente de configurar el job y autorizar SCM.
 
 Referencias: [imagen oficial](https://github.com/jenkinsci/docker-agent/blob/master/README_inbound-agent.md), [agentes Jenkins](https://www.jenkins.io/doc/book/using/using-agents/), [seguridad de Docker](https://docs.docker.com/engine/security/).
 
 ## Verificación observada
 
-La imagen se construyó y sus herramientas se ejecutaron como UID1000 con acceso autorizado al motor local; el arranque sin secreto devolvió 2. Evidencia: `evidence/entrega2/agent/`. La expansión `@archivo` corresponde al parser args4j utilizado por [Remoting](https://github.com/jenkinsci/remoting/blob/master/src/main/java/hudson/remoting/Launcher.java), no a una opción independiente de `-secret`. La conexión autenticada sigue pendiente.
+La imagen se construyó y sus herramientas se ejecutaron como UID1000 con acceso autorizado al motor local; el arranque sin secreto devolvió 2. Evidencia: `evidence/entrega2/agent/`. La expansión `@archivo` corresponde al parser args4j utilizado por [Remoting](https://github.com/jenkinsci/remoting/blob/master/src/main/java/hudson/remoting/Launcher.java), no a una opción independiente de `-secret`. La conexión autenticada por WebSocket se observó el 20 de noviembre de 2026 a las 14:42 America/Bogota. Nodo `docker-local`, etiqueta `docker`, un ejecutor, modo exclusivo. Secreto en volumen privado, modo 0600, UID1000; sin valor en argumentos o variables. Evidencia: `connection.log`, `connected-tools.txt`, `connected-isolation.txt` y `node-connected.jpg`.

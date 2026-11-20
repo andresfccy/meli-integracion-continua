@@ -144,6 +144,9 @@ REGLAS
 ### S29
 User confirmation: "sí" to "¿Autorizás configurar un agente Jenkins local dedicado con acceso al motor Docker de tu equipo, teniendo presente que ese acceso permite controlar todos sus contenedores?"
 
+### S30
+Ya creé el administrador de Jenkins. Continuá con la configuración y conexión del agente Docker dentro del alcance autorizado.
+
 ## Tasks
 - T1 | S6-S7,S11-S13,S26-S28 | delegated: independent web runtime unit | complete | 5b8cc76; shell RED/GREEN and real smoke passed
 - T2 | S8,S14-S17,S27-S28 | delegated: independent controller unit | partial | 398f441; controller built/running, setup/credentials/agent pending human action
@@ -151,7 +154,7 @@ User confirmation: "sí" to "¿Autorizás configurar un agente Jenkins local ded
 - T4 | S1-S28 | delegated: independent risk items 2 and 5 verification | complete within local scope | no blockers reproduced; default nginx byte-identical to baseline; runtime proof below
 - T5 | S15,S23-S28 | inline: Spanish report and evidence | partial | 2bb05fb; report DOCX/PDF visually checked, eight pages; members and Jenkins build evidence pending
 
-- T6 | S17-S22,S28-S29 | inline: dedicated local Docker agent | partial | image/tools/socket verified; private admin creation and node connection pending
+- T6 | S17-S22,S28-S29 | inline: dedicated local Docker agent | complete | node connected via WebSocket, executor1 exclusive docker; evidence/entrega2/agent/connection.log
 
 ## Log
 ### L1 Original request
@@ -292,3 +295,15 @@ Privately unlocked Jenkins with existing bootstrap password, without exposing it
 Updated partial report and evidence matrix: Docker access is authorized and capability verified, not agent connectivity or completed Jenkins pipeline. RDD remains off; no review lifecycle started. Risk: items 2 and 5 (authorized Docker engine access and agent runtime). Independent verification passed with connection explicitly pending.
 
 Local work-unit commit: d354c18. Updated report rendered and all 8 pages visually inspected; PDF byte-verified. Parent shell contracts pass; only private administrator creation and subsequent connection/SCM work remain.
+
+### L8 2026-11-20 User continuation
+Ya creé el administrador de Jenkins. Continuá con la configuración y conexión del agente Docker dentro del alcance autorizado.
+Observed instance configuration step; saved localhost URL and completed wizard. Authenticated dashboard shows no agents. Scope remains local dedicated agent only, no remote credentials/publication.
+Node form prepared, not saved: docker-local, one executor, /home/jenkins/agent, docker label, exclusive mode, inbound launcher. Browser security policy requires action-time confirmation before saving security-sensitive agent access, despite prior scope authorization. No agent secret or node persisted; no runtime changes to Docker. Screenshot node-save-pending.jpg. Waiting for this confirmation, not renewed remote authorization.
+
+### L9 User action-time confirmation
+sí
+Context: save docker-local and connect its dedicated agent with local Docker control, without GitHub. Node saved; secret transferred privately to external volume via stdin and temporary host secret removed. Starting opt-in overlay.
+
+### L10 Observed local agent connection
+Node docker-local saved after explicit action-time confirmation. One executor, exclusive docker label, remote root /home/jenkins/agent. Dedicated agent started; WebSocket Connected at 19:42:16 UTC (14:42 Bogota), UI Agent is connected. Secret volume readonly; file mode600 UID1000; host temporary secret deleted. Actual tools/server verified; controller unchanged/no socket. No node job, SCM, GitHub or pipeline execution. Runtime agent base tag resolved a newer digest than earlier ephemeral test; actual connected tools recorded anew. Report updated; all8pages rendered and visually inspected, PDF byte-verified. Risk items2/5; independent verification passed: controller zero executors/no socket, agent exclusive docker executor1 and WebSocket connected. Parent shell spot checks passed. RDD remains off.
