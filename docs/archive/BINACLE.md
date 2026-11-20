@@ -1027,3 +1027,7 @@ Done.
 ## Notes
 - Buyer notification delivery remains deferred until buyer notification rules are approved.
 - The standalone `task-017-final-pass-PLAN.md` file was removed after execution.
+
+
+## 2026-11-20 Jenkins delivery tracking
+Active authorized delivery log: [Jenkins entrega 2](../../odd/tasks/jenkins-entrega2.md). Existing implementation plan retained.
