@@ -40,3 +40,7 @@ El 20 de noviembre de 2026 a las 14:42 America/Bogota Jenkins mostró **Agent is
 ## Pruebas de pipeline observadas
 
 [Resultados y límites](pipeline/README.md): SCM original build1 falla por Jenkinsfile remoto ausente. Validación local separada del candidato ac45ad9: build1 falla de forma controlada, build2 pasa. Checkout GitHub autenticado, imágenes api/web, Go/vet, 7 tests frontend, smoke, network inspect, etapas e historial observados. Los pendientes históricos anteriores quedan actualizados por esta sección; siguen pendientes publicación y trigger automático. Sin push.
+
+## Cierre técnico publicado
+
+La evidencia más reciente en [scm/](scm/README.md) reemplaza los pendientes históricos: Jenkinsfile desde GitHub build2SUCCESS, PollSCM automático build3SUCCESS en f2756ad, Actions de ambas imágenes correcto. main remoto creado desde feature verificada, main local conservado. Los ensayos previos siguen identificados por fecha y alcance. Integrantes y revisión final Canvas pendientes.

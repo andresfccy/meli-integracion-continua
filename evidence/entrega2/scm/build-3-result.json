@@ -1,0 +1,12 @@
+{
+  "result": "SUCCESS",
+  "duration_ms": "130074",
+  "timestamp_ms": "1795205710759",
+  "causes": [
+    "hudson.triggers.SCMTrigger_-SCMTriggerCause"
+  ],
+  "checkout_revisions": [
+    "f2756ad0ed29bf66c35f52b416ce44646b327792"
+  ],
+  "source": "Original Jenkinsfile from GitHub SCM, automatic PollSCM"
+}

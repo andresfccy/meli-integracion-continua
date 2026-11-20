@@ -1,9 +1,9 @@
 # Entrega 2 Jenkins
 
-Estado **parcial**, sin push ni envío a Canvas. [Informe editable](Informe_entrega2_Jenkins.docx), [PDF](Informe_entrega2_Jenkins.pdf), [evidencias](../../evidence/entrega2/README.md) y [matriz](../../evidence/entrega2/compliance.json).
+Implementación técnica verificada. [Informe editable](Informe_entrega2_Jenkins.docx), [PDF](Informe_entrega2_Jenkins.pdf), [evidencias](../../evidence/entrega2/README.md) y [matriz](../../evidence/entrega2/compliance.json).
 
-Jenkins tiene controlador, agente conectado y credencial SCM utilizada sin revelar su valor. El job `meli-entrega2` está configurado desde GitHub, pero su build1 falla porque el remoto no contiene Jenkinsfile.
+El Jenkinsfile publicado fue ejecutado por `meli-entrega2`: build2 manual SUCCESS y build3 automático SUCCESS sobre f2756ad con causa SCMTriggerCause. GitHub Actions construyó ambas imágenes. Se conserva la validación local previa con fallo controlado y recuperación, sin confundirla con SCM.
 
-El job separado `meli-entrega2-validacion-local` probó el candidato ac45ad9: build1 falla de forma controlada y build2 pasa, con ambas imágenes, Go/vet, 7 pruebas frontend y comunicación real. El checkout remoto y el archivo local verificado por hash se mantienen diferenciados. Esto no sustituye la ejecución del Jenkinsfile publicado ni prueba el trigger automático.
+Se publicó feature/two-containers y se creó main remoto desde el historial verificado con autorización. main local original conservado, sin mezclar historiales; no se cambió la rama predeterminada de GitHub.
 
-Pendientes: integrantes, autorización de publicación y ejecución del job SCM original, disparo automático observado. Los documentos se actualizan con resultados reales; no se garantiza puntuación.
+Pendientes académicos: confirmar integrantes y revisar la tarea final en Canvas. No se hizo envío ni se garantiza calificación.

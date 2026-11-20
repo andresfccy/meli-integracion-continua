@@ -11,32 +11,32 @@
   ],
   [
     "3 Pipeline 25 puntos",
-    "Parcial",
-    "Jenkinsfile local versionado; lógica probada con adaptación trazable. Job SCM original falla por Jenkinsfile no publicado."
+    "Verificado",
+    "Jenkinsfile publicado y ejecutado desde SCM: builds2 y3 SUCCESS, sin harness. scm/build-2-console.log y build-3-console.log."
   ],
   [
     "4 GitHub 15 puntos",
-    "Parcial",
-    "Checkout GitHub autenticado correcto. Poll SCM definido en archivo local; disparo automático no observado. Sin push."
+    "Verificado",
+    "Poll SCM activo; build3 iniciado por SCMTriggerCause sobre f2756ad, SUCCESS. scm/build-3-result.json."
   ],
   [
     "5 Contenedores 20 puntos",
-    "Verificado en candidato",
-    "Jenkins construyó api/web en validación local build2. pipeline/build-2/build.log."
+    "Verificado",
+    "api/web construidas en Jenkins original y GitHub Actions. SCM build2/3 y Actions run44809092014."
   ],
   [
     "6 Pruebas 15 puntos",
-    "Verificado en candidato",
-    "Go/vet, 7 tests frontend y comunicación real pasan en Jenkins; fallo controlado propagado. Consolas build1 y build2."
+    "Verificado",
+    "Go/vet, 7 tests frontend, smoke y red real pasan en Jenkins SCM; fallo controlado previo demostrado en validación local."
   ],
   [
     "7 Evidencias 15 puntos",
-    "Verificado en candidato",
-    "Etapas, consolas, historial FAILURE→SUCCESS y network inspect reales en pipeline/. Alcance: validación local, no SCM original."
+    "Verificado",
+    "Etapas, consolas, historial y causa automática auténticos. pipeline/ y scm/. Se distingue ensayo local de ejecución publicada."
   ],
   [
     "8 Documento 15 puntos",
     "Parcial",
-    "Informe editable/PDF, flujo, repositorio, conclusiones y referencias. Integrantes y cierre de evidencias pendientes."
+    "Informe editable/PDF, flujo, repositorio, conclusiones y referencias actualizados. Integrantes y revisión final Canvas pendientes."
   ]
 ]

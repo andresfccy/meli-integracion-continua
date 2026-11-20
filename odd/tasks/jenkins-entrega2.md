@@ -150,9 +150,9 @@ Ya creé el administrador de Jenkins. Continuá con la configuración y conexió
 ## Tasks
 - T1 | S6-S7,S11-S13,S26-S28 | delegated: independent web runtime unit | complete | 5b8cc76; shell RED/GREEN and real smoke passed
 - T2 | S8,S14-S17,S27-S28 | delegated: independent controller unit | partial | 398f441; controller/admin/agent operational; SCM credential checkout verified
-- T3 | S18-S22,S26-S28 | inline: Jenkinsfile, Actions and shared checks | partial | 8d86bb4; local and Jenkins candidate tests pass; primary SCM missing unpublished Jenkinsfile; automatic trigger pending
+- T3 | S18-S22,S26-S28 | inline: Jenkinsfile, Actions and shared checks | partial | 8d86bb4; local and Jenkins candidate tests pass; original SCM build2SUCCESS and automatic build3SUCCESS; Actions pass
 - T4 | S1-S28 | delegated: independent risk items 2 and 5 verification | complete within local scope | no blockers reproduced; default nginx byte-identical to baseline; runtime proof below
-- T5 | S15,S23-S28 | inline: Spanish report and evidence | partial | 2bb05fb; report DOCX/PDF visually checked, eight pages; members and definitive remote pipeline/trigger pending; candidate Jenkins evidence captured
+- T5 | S15,S23-S28 | inline: Spanish report and evidence | partial | 2bb05fb; report DOCX/PDF visually checked, eight pages; technical evidence complete including SCM/trigger; members and Canvas review pending
 
 - T6 | S17-S22,S28-S29 | inline: dedicated local Docker agent | complete | node connected via WebSocket, executor1 exclusive docker; evidence/entrega2/agent/connection.log
 
@@ -329,3 +329,10 @@ Sí, autorizo size:exception. Publicá feature/two-containers completa usando mi
 SSH push completed d9de619..30f6eed to feature/two-containers; no force. Original SCM build2 started manually to register declared polling. Next evidence-bearing documentation commit will test automatic PollSCM; main merge remains conditional.
 
 Original SCM build2 final SUCCESS. Actual Jenkinsfile from GitHub revision30f6eed; no harness. Evidence scm/build-2*. Next commit is a genuine documentation/evidence update used to verify PollSCM, not an empty synthetic commit.
+### L15 Automatic trigger verified and main destination gap
+Original SCM build3 finalSUCCESS on f2756ad0ed29bf66c35f52b416ce44646b327792, Started by an SCM change, XML SCMTriggerCause. No manual launch. Actions run44809092014 success both images; prior30f6eed run44808614887 success. Actual PollSCM proof complete.
+SSH fetch origin main failed: no remote ref main. ls-remote --symref HEAD refs/heads/* shows only feature/two-containers; remote default is that branch. Local main00bb6b4 is unrelated (merge-base absent; rev-list divergence1/13). Do not --allow-unrelated-histories, force push or overwrite local main. Ask whether to create remote main from verified feature. New automatic proof files uncommitted pending destination decision; prior featuref2756ad published and fully verified. Academic report remains previous9page version; update once destination resolved.
+
+### L16 Main creation and final report
+Sí, autorizo crear main en GitHub desde feature/two-containers verificada, conservando intacto el main local existente. Continuá y actualizá el informe con las evidencias finales.
+Created remote main atf2756ad using explicit commit:refs/heads/main normal push. Remote SHA verified; local main still00bb6b4. No default-branch change or unrelated-history merge. Final report updated with SCM and automatic evidence; render review pending.
