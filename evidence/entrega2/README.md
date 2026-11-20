@@ -23,8 +23,12 @@ El rechazo real de API_UPSTREAM inválido está registrado en la carpeta local. 
 
 ## Controlador observado
 
-Jenkins 2.580.2 y Java 21.0.13; seis plugins requeridos instalados. HTTP200 y asistente inicial intacto. [Resumen](jenkins/verification-summary.json), [recursos](jenkins/controller-resources.txt), [versiones de plugins](jenkins/plugin-versions.txt) y [captura sin contraseña](jenkins/unlock-jenkins.jpg). Medición puntual: 693.9MiB y CPU0.50%; no es una prueba de capacidad bajo carga. Contenedor local permanece encendido; volumen conservado. Asistente, administrador, credenciales, agente, job, builds y disparo SCM siguen pendientes.
+Jenkins 2.580.2 y Java 21.0.13; seis plugins requeridos instalados. HTTP200 y captura inicial del asistente. [Resumen](jenkins/verification-summary.json), [recursos](jenkins/controller-resources.txt), [versiones de plugins](jenkins/plugin-versions.txt) y [captura sin contraseña](jenkins/unlock-jenkins.jpg). Medición puntual: 693.9MiB y CPU0.50%; no es una prueba de capacidad bajo carga. Contenedor local permanece encendido; volumen conservado. Posteriormente se desbloqueó el asistente de forma privada. Administrador, nodo conectado, credenciales SCM, job, builds y disparo SCM siguen pendientes.
 
 ## Revisión independiente
 
 Sin bloqueadores reproducidos. Configuración nginx predeterminada idéntica byte a byte al baseline d9de619; rechazo de inyección; proyectos no temporales rechazados; fallos de build/test y arranque propagados aun si cleanup falla. Las pruebas shell no se presentan como ejecución Jenkins. RDD estaba deshabilitado por configuración del clon; no se activó. El assessment nativo inicial fue no evaluable por archivos sin seguimiento; esto no se convirtió en una aprobación.
+
+## Agente autorizado
+
+[Verificación real](agent/verification-summary.json): imagen construida, UID1000, Java21.0.13, Git2.47.3, Docker29.10.0, Compose5.7.1 y Buildx0.39.0. Consulta autorizada al motor29.9.3 correcta. Arranque sin secreto rechazado con salida2. Contenedores de prueba efímeros, sin agente permanente ni nodo conectado. [Formulario privado pendiente](agent/admin-setup-pending.jpg), sin credenciales.

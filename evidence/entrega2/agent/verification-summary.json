@@ -1,0 +1,87 @@
+{
+  "checked_utc": "2026-11-20T19:08:20.861725+00:00",
+  "image_metadata": "Image=sha256:f1c910ff311dffa7d667eac5c65e42cc85e3d5c9363cfd98d343e121a72f56b6 User=jenkins Architecture=arm64 OS=linux Entrypoint=[\"/usr/local/bin/start-docker-agent\"]",
+  "base_digests": [
+    "docker.io/jenkins/inbound-agent:jdk21@sha256:5a8e41b800bb47295e8653f91695c31e07020964ecd98ecdd1b9dc9296f8c61a",
+    "docker.io/library/docker:29-cli@sha256:34507eb5069d8be82c95dd3b6987d4250fd5fee49b82e2509b7d7a7030740d6d"
+  ],
+  "results": {
+    "agent-tools": {
+      "exit_code": 0,
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "jenkins",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges",
+        "--group-add",
+        "0",
+        "--mount",
+        "type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock",
+        "--entrypoint",
+        "sh",
+        "meli-jenkins-docker-agent:local",
+        "-ec",
+        "id; java -version; git --version; docker --version; docker compose version; docker buildx version; docker version --format \"Server={{.Server.Version}}\""
+      ]
+    },
+    "agent-no-secret-startup": {
+      "exit_code": 2,
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "jenkins",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges",
+        "--group-add",
+        "0",
+        "meli-jenkins-docker-agent:local",
+        "-help"
+      ]
+    },
+    "agent-remoting-help": {
+      "exit_code": 0,
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--user",
+        "jenkins",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges",
+        "--group-add",
+        "0",
+        "--entrypoint",
+        "java",
+        "meli-jenkins-docker-agent:local",
+        "-jar",
+        "/usr/share/jenkins/agent.jar",
+        "-help"
+      ]
+    }
+  },
+  "secret_option_help_lines": [
+    "-secret HEX_SECRET                     : Agent connection secret."
+  ],
+  "capability_scope": "Ephemeral UID jenkins containers only; local Docker server version read via authorized socket; no mutation of other containers or data.",
+  "not_done": [
+    "No node/admin/credential configuration",
+    "No permanent overlay",
+    "No agent connection",
+    "No GitHub access or credentials",
+    "No pipeline execution"
+  ],
+  "retained_scratch": [
+    "/tmp/meli-agent-docker.KZSzP4"
+  ]
+}

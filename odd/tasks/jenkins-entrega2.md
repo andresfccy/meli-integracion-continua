@@ -141,12 +141,17 @@ REGLAS
 - No amplíes el alcance a herramientas de la entrega final.
 - Explica brevemente las decisiones técnicas para que pueda comprenderlas y sustentarlas.
 
+### S29
+User confirmation: "sí" to "¿Autorizás configurar un agente Jenkins local dedicado con acceso al motor Docker de tu equipo, teniendo presente que ese acceso permite controlar todos sus contenedores?"
+
 ## Tasks
 - T1 | S6-S7,S11-S13,S26-S28 | delegated: independent web runtime unit | complete | 5b8cc76; shell RED/GREEN and real smoke passed
 - T2 | S8,S14-S17,S27-S28 | delegated: independent controller unit | partial | 398f441; controller built/running, setup/credentials/agent pending human action
 - T3 | S18-S22,S26-S28 | inline: Jenkinsfile, Actions and shared checks | partial | 8d86bb4; local builds/tests pass; Jenkins/remote runs require authorization
 - T4 | S1-S28 | delegated: independent risk items 2 and 5 verification | complete within local scope | no blockers reproduced; default nginx byte-identical to baseline; runtime proof below
 - T5 | S15,S23-S28 | inline: Spanish report and evidence | partial | 2bb05fb; report DOCX/PDF visually checked, eight pages; members and Jenkins build evidence pending
+
+- T6 | S17-S22,S28-S29 | inline: dedicated local Docker agent | partial | image/tools/socket verified; private admin creation and node connection pending
 
 ## Log
 ### L1 Original request
@@ -276,3 +281,12 @@ Risk: items 2 and 5 (environment-derived nginx config and Jenkins/CI runtime). S
 
 ### L5 Local delivery record
 Source commits: 5b8cc76, 398f441, 8d86bb4. Report/evidence commit: 2bb05fb. Named verification scratch cleaned by parent; runtime Jenkins container and persistent volume retained. No remote publication. Next step is explicit agent-access authorization and private initial administrator setup; remaining requirements stay partial.
+
+### L6 2026-11-20 User authorization
+sí
+Context: accepts dedicated local Jenkins agent with access to local Docker engine and disclosed control over its containers. Does not authorize remote credentials, push, public exposure or changes to administrator credentials. Prepare and verify agent capabilities locally; private Jenkins setup remains required before registration/connection.
+
+### L7 2026-11-20 Authorized agent preparation and observed boundary
+Added opt-in dedicated agent image/overlay with UID1000, socket group0, no published ports, readonly dedicated secret volume, fail-closed startup and no controller socket. RED missing Dockerfile exit1; structural GREEN. Actual image build passed; Java21.0.13, Git2.47.3, Docker29.10.0, Compose5.7.1, Buildx0.39.0; authorized local server29.9.3 reachable. Missing-secret startup exit2. Evidence in evidence/entrega2/agent. Independent verifier found no blockers; args4j expansion supports @file in official sources, authenticated connection not yet observed. Parent reran both shell contracts successfully.
+Privately unlocked Jenkins with existing bootstrap password, without exposing it; temporary secret file removed. Selected no additional suggested plugins, retaining preinstalled plugins. Browser now shows Create First Admin User with all fields empty; screenshot admin-setup-pending.jpg. Creating a new authentication credential requires user handoff. No node, agent secret, permanent agent, SCM credentials or job created. Existing controller remains running. No remote access or publication.
+Updated partial report and evidence matrix: Docker access is authorized and capability verified, not agent connectivity or completed Jenkins pipeline. RDD remains off; no review lifecycle started. Risk: items 2 and 5 (authorized Docker engine access and agent runtime). Independent verification passed with connection explicitly pending.

@@ -7,7 +7,7 @@
   [
     "2 Instalación 20 puntos",
     "Parcial",
-    "Jenkins 2.580.2 en localhost:8081; 6 plugins instalados; jenkins/verification-summary.json. Asistente, agente y credenciales pendientes."
+    "Jenkins 2.580.2 local; seis plugins. Imagen del agente y acceso Docker verificados (agent/verification-summary.json). Administrador, nodo conectado y SCM pendientes."
   ],
   [
     "3 Pipeline 25 puntos",

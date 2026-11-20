@@ -1,0 +1,39 @@
+# Opt-in overlay: use only after explicit Docker-engine access authorization.
+services:
+  docker-agent:
+    build:
+      context: ./agent
+    user: jenkins
+    init: true
+    group_add:
+      - "${DOCKER_SOCKET_GID:-0}"
+    depends_on:
+      - jenkins
+    command:
+      - -url
+      - http://jenkins:8080/
+      - -webSocket
+      - -secret
+      - '@/run/jenkins-agent/secret'
+      - -name
+      - docker-local
+      - -workDir
+      - /home/jenkins/agent
+    volumes:
+      # The Docker API permits control of this host daemon; :ro would not limit it.
+      - /var/run/docker.sock:/var/run/docker.sock
+      - agent_work:/home/jenkins/agent
+      - type: volume
+        source: agent_secret
+        target: /run/jenkins-agent
+        read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    cpus: 2.0
+    mem_limit: 2g
+    restart: "no"
+volumes:
+  agent_work:
+  agent_secret:
+    external: true
+    name: meli-jenkins-entrega2_agent_secret

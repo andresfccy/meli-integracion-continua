@@ -1,0 +1,1 @@
+Image=sha256:f1c910ff311dffa7d667eac5c65e42cc85e3d5c9363cfd98d343e121a72f56b6 User=jenkins Architecture=arm64 OS=linux Entrypoint=["/usr/local/bin/start-docker-agent"]

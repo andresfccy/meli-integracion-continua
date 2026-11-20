@@ -86,9 +86,11 @@ utiliza conexión entrante WebSocket, no hace falta publicar 50000; la URL debe
 ser accesible desde el agente autorizado. `127.0.0.1` solo es válido cuando el
 agente está en el mismo host, no desde otro contenedor o equipo.
 
-No se incluyen comandos de instalación, secretos de agentes ni cambios de
-permisos: faltan autorización y selección del entorno concreto. Hasta contar
-con un agente conectado, un job dirigido a `docker` quedará esperando ejecutor.
+El acceso del agente dedicado al Docker local fue autorizado posteriormente. Su
+[receta separada](agent/README.md) mantiene el socket fuera del controlador y
+explica el registro del nodo después del asistente. La autorización no incluye
+GitHub. Hasta contar con el agente conectado, un job dirigido a `docker`
+quedará esperando ejecutor.
 
 ### Credenciales y job Pipeline
 
