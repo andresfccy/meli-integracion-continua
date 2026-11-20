@@ -1,0 +1,16 @@
+UTC start: 2026-11-20T18:52:14Z
+Scratch: /private/tmp/meli-delivery-check.8GDITS
+Docker config: isolated, no registry credentials
+Project: meli-check-entrega2-20261120
+sh scripts/ci.sh build: exit 0; duration 1s
+sh scripts/ci.sh test: exit 0; duration 44s
+sh scripts/ci.sh smoke: exit 0; duration 12s
+Invalid-upstream container: exit 1 (expected nonzero); duration 0s
+UTC finish: 2026-11-20T18:53:11Z
+Frontend: 7 tests passed across 2 test files; TypeScript/Vite production build exit 0.
+Backend: go test ./... and go vet ./... completed exit 0; detailed package results in backend-tests.log.
+Smoke: api and web healthy; service-name DNS HTTP health and web proxy health returned exact status ok; web health returned ok.
+Network inspection: 2 attached containers; network-inspect.json captured before cleanup.
+Cleanup: own project containers and application network removed successfully; no volumes or unrelated resources removed.
+Invalid-upstream: exit 1 with expected validation error before nginx startup.
+Not executed: Jenkins pipeline/job, automatic GitHub trigger, Playwright browser suite.

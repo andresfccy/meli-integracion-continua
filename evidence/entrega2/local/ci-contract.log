@@ -1,0 +1,4 @@
+Scratch retained for parent cleanup: /var/folders/h_/qvk2m2kn4v591d49fprkxsxh0000gn/T/tmp.3Ide0wLArk
+Set CI_PROJECT=meli-check-<unique-run> for an isolated run.
+compose -p meli-check-contract down
+CI contract checks passed

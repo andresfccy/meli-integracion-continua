@@ -1,0 +1,2 @@
+Container=/meli-jenkins-entrega2-jenkins-1 Image=sha256:143e7cbca25690a32b3468b1469d1376d702d80f438d1d2e3c80225b428d043f User=jenkins Privileged=false CapDrop=["ALL"] SecurityOpt=["no-new-privileges:true"] Ports={"8080/tcp":[{"HostIp":"127.0.0.1","HostPort":"8081"}]} Mounts=volume:meli-jenkins-entrega2_jenkins_home:/var/jenkins_home  CPUQuotaNano=2000000000 MemoryLimitBytes=2147483648 Status=running
+Built-in executors: 0

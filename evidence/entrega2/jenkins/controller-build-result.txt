@@ -1,0 +1,5 @@
+Started UTC: 2026-11-20T18:52:28.376182+00:00
+Finished UTC: 2026-11-20T18:54:43.640044+00:00
+Command: docker compose --progress plain -f infra/jenkins/compose.yaml build
+Exit code: 0
+Credentials: fresh anonymous DOCKER_CONFIG, no auths

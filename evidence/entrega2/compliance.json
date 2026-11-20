@@ -1,0 +1,42 @@
+[
+  [
+    "1 Características 25 puntos",
+    "Verificado documental",
+    "infra/jenkins/README.md e informe: recursos, instalación, puertos, plugins y credenciales."
+  ],
+  [
+    "2 Instalación 20 puntos",
+    "Parcial",
+    "Jenkins 2.580.2 en localhost:8081; 6 plugins instalados; jenkins/verification-summary.json. Asistente, agente y credenciales pendientes."
+  ],
+  [
+    "3 Pipeline 25 puntos",
+    "Parcial",
+    "Jenkinsfile con Checkout, Build, Test y post. Falta ejecución observada en Jenkins."
+  ],
+  [
+    "4 GitHub 15 puntos",
+    "Pendiente",
+    "Poll SCM configurado. Sin job SCM ni cambio remoto autorizado; no se comprobó disparo automático."
+  ],
+  [
+    "5 Contenedores 20 puntos",
+    "Parcial",
+    "Ambas imágenes construidas localmente: local/build.log. Construcción dentro de Jenkins pendiente."
+  ],
+  [
+    "6 Pruebas 15 puntos",
+    "Parcial",
+    "Go, vet, 7 tests frontend y comunicación real pasan localmente. Pipeline y propagación en Jenkins pendientes."
+  ],
+  [
+    "7 Evidencias 15 puntos",
+    "Parcial",
+    "Logs y network-inspect reales. Faltan etapas, consola e historial de builds Jenkins fallido y corregido."
+  ],
+  [
+    "8 Documento 15 puntos",
+    "Parcial",
+    "Informe editable/PDF, flujo, repositorio, conclusiones y referencias. Integrantes y cierre de evidencias pendientes."
+  ]
+]

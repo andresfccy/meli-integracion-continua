@@ -1,0 +1,56 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from backend.Dockerfile
+#1 transferring dockerfile: 241B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.26-alpine@sha256:87c65a688975c0b1d4585d204874c45ca78354670e3a5f11368c5a492303d696
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 131B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/golang:1.26-alpine@sha256:87c65a688975c0b1d4585d204874c45ca78354670e3a5f11368c5a492303d696
+#4 resolve docker.io/library/golang:1.26-alpine@sha256:87c65a688975c0b1d4585d204874c45ca78354670e3a5f11368c5a492303d696 0.0s done
+#4 DONE 0.0s
+
+#5 [2/6] WORKDIR /src
+#5 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 4.64kB done
+#6 DONE 0.0s
+
+#7 [3/6] COPY go.mod go.sum ./
+#7 DONE 0.0s
+
+#8 [4/6] RUN go mod download
+#8 DONE 3.1s
+
+#9 [5/6] COPY . .
+#9 DONE 0.0s
+
+#10 [6/6] RUN go test ./... && go vet ./...
+#10 2.820 ?   	seller-dashboard/cmd/api	[no test files]
+#10 2.820 ?   	seller-dashboard/internal/adapters/inbound/graphql	[no test files]
+#10 2.895 ok  	seller-dashboard/internal/adapters/inbound/http	0.006s
+#10 2.895 ok  	seller-dashboard/internal/adapters/inbound/scheduler	0.004s
+#10 2.895 ok  	seller-dashboard/internal/adapters/outbound/notifications	0.004s
+#10 2.895 ok  	seller-dashboard/internal/adapters/outbound/persistence/memory	0.002s
+#10 2.895 ok  	seller-dashboard/internal/application	0.002s
+#10 2.895 ?   	seller-dashboard/internal/bootstrap	[no test files]
+#10 2.895 ok  	seller-dashboard/internal/domain	0.002s
+#10 DONE 3.5s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 1.5s done
+#11 exporting manifest sha256:fc6c8c273021ccc56be3579304127545244fdeddc9c13c67317a7927f66b199b done
+#11 exporting config sha256:ae2f1e3a4064f5e1267d004cf68f56119c8072e7b3d5c91d354470c2458e5777 done
+#11 exporting attestation manifest sha256:28e98bef8887ec52465361c66e5035870ee6c7ac27bb64faa5ca79cf8da0219d done
+#11 exporting manifest list sha256:c665193a71dc0bc560fb5da3d5d0f98e4a1973dfb5c7d0b0df0ca7709651cb02 done
+#11 naming to moby-dangling@sha256:c665193a71dc0bc560fb5da3d5d0f98e4a1973dfb5c7d0b0df0ca7709651cb02 done
+#11 unpacking to moby-dangling@sha256:c665193a71dc0bc560fb5da3d5d0f98e4a1973dfb5c7d0b0df0ca7709651cb02
+#11 unpacking to moby-dangling@sha256:c665193a71dc0bc560fb5da3d5d0f98e4a1973dfb5c7d0b0df0ca7709651cb02 0.3s done
+#11 DONE 1.9s

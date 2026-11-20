@@ -1,0 +1,17 @@
+{
+  "ready_for_human_setup": true,
+  "observations": [
+    {
+      "attempt": "initial",
+      "result": "RemoteDisconnected before readiness; retried without restarting controller"
+    },
+    {
+      "checked_utc": "2026-11-20T18:55:48.343340+00:00",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8081/login",
+      "jenkins_version_header": "2.580.2",
+      "unlock_jenkins_visible": true,
+      "setup_wizard_marker_visible": true
+    }
+  ]
+}

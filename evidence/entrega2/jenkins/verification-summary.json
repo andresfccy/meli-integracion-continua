@@ -1,0 +1,21 @@
+{
+  "checked_utc": "2026-11-20T18:56:11.841552+00:00",
+  "controller_build_exit_code": 0,
+  "http_setup_page_observed": true,
+  "jenkins_version": "2.580.2",
+  "required_plugins": {
+    "git": "5.11.0",
+    "github": "1.47.0",
+    "workflow-aggregator": "608.v67378e9d3db_1",
+    "pipeline-stage-view": "2.41",
+    "docker-workflow": "653.v2f2c08eff0ec",
+    "credentials-binding": "728.v902a_273b_8947"
+  },
+  "missing_required_plugins": [],
+  "scope": "Controller built and started only; setup wizard untouched; no admin, credentials, job or agent created; no pipeline run.",
+  "retained_docker_config": "/tmp/meli-jenkins-docker.VRepSY",
+  "container": "meli-jenkins-entrega2-jenkins-1",
+  "volume": "meli-jenkins-entrega2_jenkins_home",
+  "url": "http://127.0.0.1:8081",
+  "secret_capture": "No raw runtime logs, HTML bodies, initial password, session headers or secret files captured."
+}

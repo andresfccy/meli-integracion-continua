@@ -1,0 +1,133 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from frontend.Dockerfile
+#1 transferring dockerfile: 316B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:24-alpine@sha256:a34ab6d7f6f4813f4d0c5469d74685604b962fbdbf5793a7bc7b4998ecb867c8
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 131B done
+#3 DONE 0.0s
+
+#4 [1/7] FROM docker.io/library/node:24-alpine@sha256:a34ab6d7f6f4813f4d0c5469d74685604b962fbdbf5793a7bc7b4998ecb867c8
+#4 resolve docker.io/library/node:24-alpine@sha256:a34ab6d7f6f4813f4d0c5469d74685604b962fbdbf5793a7bc7b4998ecb867c8 done
+#4 DONE 0.0s
+
+#5 [2/7] WORKDIR /src
+#5 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 1.44kB done
+#6 DONE 0.0s
+
+#7 [3/7] RUN npm install --global pnpm@10.12.1
+#7 3.733 
+#7 3.733 added 1 package in 4s
+#7 3.733 
+#7 3.733 1 package is looking for funding
+#7 3.733   run `npm fund` for details
+#7 3.734 npm notice
+#7 3.734 npm notice New major version of npm available! 11.19.1 -> 12.2.3
+#7 3.734 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.3
+#7 3.734 npm notice To update run: npm install -g npm@12.2.3
+#7 3.734 npm notice
+#7 DONE 3.9s
+
+#8 [4/7] COPY package.json pnpm-lock.yaml ./
+#8 DONE 0.0s
+
+#9 [5/7] RUN pnpm install --frozen-lockfile
+#9 0.320 Lockfile is up to date, resolution step is skipped
+#9 0.332 Progress: resolved 1, reused 0, downloaded 0, added 0
+#9 0.357 Packages: +116
+#9 0.357 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#9 1.112 
+#9 1.112    ╭──────────────────────────────────────────╮
+#9 1.112    │                                          │
+#9 1.112    │   Update available! 10.12.1 → 12.21.0.   │
+#9 1.112    │   Changelog: https://pnpm.io/v/12.21.0   │
+#9 1.112    │     To update, run: pnpm add -g pnpm     │
+#9 1.112    │                                          │
+#9 1.112    ╰──────────────────────────────────────────╯
+#9 1.112 
+#9 1.333 Progress: resolved 116, reused 0, downloaded 21, added 21
+#9 2.338 Progress: resolved 116, reused 0, downloaded 36, added 36
+#9 3.337 Progress: resolved 116, reused 0, downloaded 47, added 47
+#9 4.340 Progress: resolved 116, reused 0, downloaded 63, added 62
+#9 5.341 Progress: resolved 116, reused 0, downloaded 77, added 77
+#9 6.341 Progress: resolved 116, reused 0, downloaded 89, added 89
+#9 7.341 Progress: resolved 116, reused 0, downloaded 106, added 106
+#9 8.342 Progress: resolved 116, reused 0, downloaded 111, added 111
+#9 11.82 Progress: resolved 116, reused 0, downloaded 112, added 111
+#9 12.83 Progress: resolved 116, reused 0, downloaded 112, added 112
+#9 13.83 Progress: resolved 116, reused 0, downloaded 113, added 113
+#9 15.89 Progress: resolved 116, reused 0, downloaded 114, added 113
+#9 16.89 Progress: resolved 116, reused 0, downloaded 115, added 115
+#9 26.36 Progress: resolved 116, reused 0, downloaded 116, added 115
+#9 26.36 Progress: resolved 116, reused 0, downloaded 116, added 116, done
+#9 26.40 
+#9 26.40 dependencies:
+#9 26.40 + @vitejs/plugin-react 6.0.3
+#9 26.40 + concurrently 10.0.3
+#9 26.40 + react 19.2.7
+#9 26.40 + react-dom 19.2.7
+#9 26.40 + typescript 7.0.2
+#9 26.40 + vite 8.1.5
+#9 26.40 
+#9 26.40 devDependencies:
+#9 26.40 + @playwright/test 1.61.1
+#9 26.40 + @types/react 19.2.17
+#9 26.40 + @types/react-dom 19.2.3
+#9 26.40 + jsdom 29.1.1
+#9 26.40 + vitest 4.1.10
+#9 26.40 
+#9 26.43 Done in 26.3s using pnpm v10.12.1
+#9 DONE 26.6s
+
+#10 [6/7] COPY . .
+#10 DONE 0.0s
+
+#11 [7/7] RUN pnpm run test-frontend && pnpm run build
+#11 0.235 
+#11 0.235 > seller-dashboard-mvp@1.0.0 test-frontend /src
+#11 0.235 > vitest run
+#11 0.235 
+#11 0.390 
+#11 0.391 [1m[30m[46m RUN [49m[39m[22m [36mv4.1.10 [39m[90m/src[39m
+#11 0.391 
+#11 0.790  [32m✓[39m src/auth/routing.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 2[2mms[22m[39m
+#11 0.795  [32m✓[39m src/auth/session.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+#11 0.797 
+#11 0.797 [2m Test Files [22m [1m[32m2 passed[39m[22m[90m (2)[39m
+#11 0.797 [2m      Tests [22m [1m[32m7 passed[39m[22m[90m (7)[39m
+#11 0.797 [2m   Start at [22m 18:52:55
+#11 0.798 [2m   Duration [22m 402ms[2m (transform 47ms, setup 0ms, import 70ms, tests 7ms, environment 578ms)[22m
+#11 0.798 
+#11 0.985 
+#11 0.985 > seller-dashboard-mvp@1.0.0 build /src
+#11 0.985 > tsc -b && vite build
+#11 0.985 
+#11 1.153 vite v8.1.5 building client environment for production...
+#11 1.157 [2Ktransforming...✓ 24 modules transformed.
+#11 1.202 rendering chunks...
+#11 1.218 computing gzip size...
+#11 1.220 dist/index.html                   0.16 kB │ gzip:  0.14 kB
+#11 1.220 dist/assets/index-wIoKR3mz.css    4.55 kB │ gzip:  1.70 kB
+#11 1.220 dist/assets/index-o6wjEwJ5.js   210.20 kB │ gzip: 64.64 kB
+#11 1.220 
+#11 1.220 ✓ built in 66ms
+#11 DONE 1.2s
+
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 2.3s done
+#12 exporting manifest sha256:8f91d7e69af3fa7dc4c360129370bf9040e52db464fd39a94c88c4f599a87eef done
+#12 exporting config sha256:fac73cc94e901959df95a2d92c18faff8eaf1eec42e23cb4c39639dcadc3398c done
+#12 exporting attestation manifest sha256:27d007f24abeab21b8c14af81ee31dbb41a51ed8a76d2353f5da5b585eca57fe done
+#12 exporting manifest list sha256:ab8ef3ca790bc8bd4b0fa9c98a579a24afbf33e7df61359fb4cc30155e8fd1d2 done
+#12 naming to moby-dangling@sha256:ab8ef3ca790bc8bd4b0fa9c98a579a24afbf33e7df61359fb4cc30155e8fd1d2 done
+#12 unpacking to moby-dangling@sha256:ab8ef3ca790bc8bd4b0fa9c98a579a24afbf33e7df61359fb4cc30155e8fd1d2
+#12 unpacking to moby-dangling@sha256:ab8ef3ca790bc8bd4b0fa9c98a579a24afbf33e7df61359fb4cc30155e8fd1d2 1.2s done
+#12 DONE 3.5s
