@@ -36,3 +36,7 @@ Sin bloqueadores reproducidos. Configuración nginx predeterminada idéntica byt
 ## Conexión del agente observada
 
 El 20 de noviembre de 2026 a las 14:42 America/Bogota Jenkins mostró **Agent is connected**. [Captura](agent/node-connected.jpg), [log WebSocket](agent/connection.log), [herramientas y permisos](agent/connected-tools.txt) y [aislamiento real](agent/connected-isolation.txt). Un ejecutor, etiqueta docker exclusiva; controlador sin socket; agente sin puertos publicados. Las capturas anteriores conservan el estado histórico. Job, SCM, builds y trigger siguen pendientes; no hubo acceso GitHub.
+
+## Pruebas de pipeline observadas
+
+[Resultados y límites](pipeline/README.md): SCM original build1 falla por Jenkinsfile remoto ausente. Validación local separada del candidato ac45ad9: build1 falla de forma controlada, build2 pasa. Checkout GitHub autenticado, imágenes api/web, Go/vet, 7 tests frontend, smoke, network inspect, etapas e historial observados. Los pendientes históricos anteriores quedan actualizados por esta sección; siguen pendientes publicación y trigger automático. Sin push.

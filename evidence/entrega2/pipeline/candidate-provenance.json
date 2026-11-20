@@ -1,0 +1,9 @@
+{
+  "commit": "ac45ad99643aa39645c81eb939b13d5374eafd2a",
+  "archive_sha256": "b98ffdb09c4e1e4e4749470eb60f7a53f973bfc58fff351b7b5c78a83b91502e",
+  "original_jenkinsfile_sha256": "42b4a496e8167bc8caf40122e05477ef43c0087d5e098a496e6f54acdb89a7b8",
+  "harness_sha256": "7565a0ad49696339200c46e1989c5505a2b66f4cd28e3855827e32d7815b2d53",
+  "scope": "Separate local candidate validation; remote checkout in github-scm; no push; not remote trigger proof",
+  "local_archive": "/private/tmp/meli-pipeline-candidate.nro__0g2/candidate.tar",
+  "agent_archive": "/tmp/meli-candidate-ac45ad99643aa39645c81eb939b13d5374eafd2a.tar"
+}

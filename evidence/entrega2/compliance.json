@@ -6,33 +6,33 @@
   ],
   [
     "2 Instalación 20 puntos",
-    "Parcial",
-    "Jenkins 2.580.2 local, administrador creado, seis plugins; docker-local conectado por WebSocket. agent/node-connected.jpg y connection.log. Credenciales SCM y job pendientes."
+    "Verificado operativo",
+    "Controlador, agente y checkout autenticado por github-meli-readonly observados. No se expone ni se inspecciona el valor del token."
   ],
   [
     "3 Pipeline 25 puntos",
     "Parcial",
-    "Jenkinsfile con Checkout, Build, Test y post. Falta ejecución observada en Jenkins."
+    "Jenkinsfile local versionado; lógica probada con adaptación trazable. Job SCM original falla por Jenkinsfile no publicado."
   ],
   [
     "4 GitHub 15 puntos",
-    "Pendiente",
-    "Poll SCM configurado. Sin job SCM ni cambio remoto autorizado; no se comprobó disparo automático."
+    "Parcial",
+    "Checkout GitHub autenticado correcto. Poll SCM definido en archivo local; disparo automático no observado. Sin push."
   ],
   [
     "5 Contenedores 20 puntos",
-    "Parcial",
-    "Ambas imágenes construidas localmente: local/build.log. Construcción dentro de Jenkins pendiente."
+    "Verificado en candidato",
+    "Jenkins construyó api/web en validación local build2. pipeline/build-2/build.log."
   ],
   [
     "6 Pruebas 15 puntos",
-    "Parcial",
-    "Go, vet, 7 tests frontend y comunicación real pasan localmente. Pipeline y propagación en Jenkins pendientes."
+    "Verificado en candidato",
+    "Go/vet, 7 tests frontend y comunicación real pasan en Jenkins; fallo controlado propagado. Consolas build1 y build2."
   ],
   [
     "7 Evidencias 15 puntos",
-    "Parcial",
-    "Logs y network-inspect reales. Faltan etapas, consola e historial de builds Jenkins fallido y corregido."
+    "Verificado en candidato",
+    "Etapas, consolas, historial FAILURE→SUCCESS y network inspect reales en pipeline/. Alcance: validación local, no SCM original."
   ],
   [
     "8 Documento 15 puntos",

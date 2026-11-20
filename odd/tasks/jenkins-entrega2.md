@@ -149,10 +149,10 @@ Ya creé el administrador de Jenkins. Continuá con la configuración y conexió
 
 ## Tasks
 - T1 | S6-S7,S11-S13,S26-S28 | delegated: independent web runtime unit | complete | 5b8cc76; shell RED/GREEN and real smoke passed
-- T2 | S8,S14-S17,S27-S28 | delegated: independent controller unit | partial | 398f441; controller built/running, setup/credentials/agent pending human action
-- T3 | S18-S22,S26-S28 | inline: Jenkinsfile, Actions and shared checks | partial | 8d86bb4; local builds/tests pass; Jenkins/remote runs require authorization
+- T2 | S8,S14-S17,S27-S28 | delegated: independent controller unit | partial | 398f441; controller/admin/agent operational; SCM credential checkout verified
+- T3 | S18-S22,S26-S28 | inline: Jenkinsfile, Actions and shared checks | partial | 8d86bb4; local and Jenkins candidate tests pass; primary SCM missing unpublished Jenkinsfile; automatic trigger pending
 - T4 | S1-S28 | delegated: independent risk items 2 and 5 verification | complete within local scope | no blockers reproduced; default nginx byte-identical to baseline; runtime proof below
-- T5 | S15,S23-S28 | inline: Spanish report and evidence | partial | 2bb05fb; report DOCX/PDF visually checked, eight pages; members and Jenkins build evidence pending
+- T5 | S15,S23-S28 | inline: Spanish report and evidence | partial | 2bb05fb; report DOCX/PDF visually checked, eight pages; members and definitive remote pipeline/trigger pending; candidate Jenkins evidence captured
 
 - T6 | S17-S22,S28-S29 | inline: dedicated local Docker agent | complete | node connected via WebSocket, executor1 exclusive docker; evidence/entrega2/agent/connection.log
 
@@ -307,3 +307,17 @@ Context: save docker-local and connect its dedicated agent with local Docker con
 
 ### L10 Observed local agent connection
 Node docker-local saved after explicit action-time confirmation. One executor, exclusive docker label, remote root /home/jenkins/agent. Dedicated agent started; WebSocket Connected at 19:42:16 UTC (14:42 Bogota), UI Agent is connected. Secret volume readonly; file mode600 UID1000; host temporary secret deleted. Actual tools/server verified; controller unchanged/no socket. No node job, SCM, GitHub or pipeline execution. Runtime agent base tag resolved a newer digest than earlier ephemeral test; actual connected tools recorded anew. Report updated; all8pages rendered and visually inspected, PDF byte-verified. Risk items2/5; independent verification passed: controller zero executors/no socket, agent exclusive docker executor1 and WebSocket connected. Parent shell spot checks passed. RDD remains off.
+
+### L11 User SCM authorization and credential handoff
+Sí, autorizo configurar SCM con el repositorio GitHub del proyecto. Decime cómo cargar la credencial de forma segura en Jenkins y continuá con las pruebas del pipeline, sin hacer push todavía.
+Local origin verified: git@github.com:andresfccy/meli-integracion-continua.git. Proposed Jenkins HTTPS credential ID github-meli-readonly, username/password kind with fine-grained PAT limited to repository Contents read-only. User must enter token directly in Jenkins; no ambient SSH or other session reuse. No push. SCM pipeline cannot test unpublished local commits; remote content/branch must be inspected after authorized credential exists, without claiming local Jenkinsfile is remotely available.
+
+### L12 Credential confirmed by user
+Ya guardé la credencial github-meli-readonly en Jenkins. Continuá con la configuración SCM y las pruebas del pipeline, sin hacer push.
+Configured meli-entrega2 as Pipeline script from SCM, HTTPS project repo, github-meli-readonly, branch */feature/two-containers, Jenkinsfile. First read-only SCM build started. No push.
+
+### L13 SCM and local candidate validation
+SCM job build1 failed before execution because remote branch has no Jenkinsfile; retained. Separate sandboxed meli-entrega2-validacion-local created to test commit ac45ad9 with read-only GitHub checkout into github-scm and SHA256-verified source-only local archive. Adaptations recorded: checkout harness, no polling, default failure flag true. Build1 final FAILURE at Test with intended controlled message; Build2 launched with flag false. No push or remote mutation.
+Build2 final SUCCESS (50.334s); Build1 controlled FAILURE (47.377s). Do not use transient build.xml result while running: only final console/build state counts. Evidence collected from Jenkins with serialized console annotations stripped, source archive/hash/adaptation recorded. Independent verifier confirmed56 source files byte-identical to ac45ad9 and Build/Test/post unchanged; GitHub checkout, secret pattern scan, two healthy services and no remaining test containers/network passed. No secrets read by verifier. Cleanup log overwritten by second post cleanup is a documented evidence limitation, not a failed cleanup. Primary SCM and automatic trigger remain blocked by unpublished Jenkinsfile under explicit no-push instruction.
+
+Report updated to9pages and every page visually inspected; PDF byte-verified. Parent spot checks confirmed FAILURE/FAILURE/SUCCESS final results and two-service network. RDD remains off; no push. Candidate archive retained in agent /tmp for manual reruns; removed if agent is recreated, requiring explicit re-transfer.

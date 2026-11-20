@@ -1,0 +1,3 @@
+Started by user Andres Cardenas
+ERROR: Unable to find Jenkinsfile from git https://github.com/andresfccy/meli-integracion-continua.git
+Finished: FAILURE

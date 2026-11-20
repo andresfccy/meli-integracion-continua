@@ -1,0 +1,26 @@
+[
+  {
+    "job": "meli-entrega2",
+    "build": 1,
+    "result": "FAILURE",
+    "duration_ms": "1298",
+    "timestamp_ms": "1795204356814",
+    "final_console": "Finished: FAILURE"
+  },
+  {
+    "job": "meli-entrega2-validacion-local",
+    "build": 1,
+    "result": "FAILURE",
+    "duration_ms": "47377",
+    "timestamp_ms": "1795204554843",
+    "final_console": "Finished: FAILURE"
+  },
+  {
+    "job": "meli-entrega2-validacion-local",
+    "build": 2,
+    "result": "SUCCESS",
+    "duration_ms": "50334",
+    "timestamp_ms": "1795204622292",
+    "final_console": "Finished: SUCCESS"
+  }
+]

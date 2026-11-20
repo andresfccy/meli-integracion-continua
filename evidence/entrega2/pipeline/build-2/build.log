@@ -1,0 +1,145 @@
+ Image meli-check-jenkins-meli-entrega2-validacion-local-2-web Building 
+ Image meli-check-jenkins-meli-entrega2-validacion-local-2-api Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.24kB done
+#1 DONE 0.0s
+
+#2 [web internal] load build definition from Dockerfile
+#2 transferring dockerfile: 683B done
+#2 DONE 0.0s
+
+#3 [api internal] load build definition from Dockerfile
+#3 transferring dockerfile: 497B done
+#3 DONE 0.0s
+
+#4 [web internal] load metadata for docker.io/library/node:24-alpine@sha256:a34ab6d7f6f4813f4d0c5469d74685604b962fbdbf5793a7bc7b4998ecb867c8
+#4 DONE 0.0s
+
+#5 [api internal] load metadata for docker.io/library/golang:1.26-alpine@sha256:87c65a688975c0b1d4585d204874c45ca78354670e3a5f11368c5a492303d696
+#5 DONE 0.0s
+
+#6 [api internal] load metadata for docker.io/library/alpine:3.23@sha256:469c9ea410b9215eaee7976ba6c0639039b444be8e5d638f7abbada189971eb2
+#6 DONE 0.0s
+
+#7 [web internal] load metadata for docker.io/library/nginx:stable-alpine@sha256:583b7f2fce1cdb8da5ad5c39ebd3c33b98b87d493190e548bdee1fa8c619c311
+#7 DONE 0.0s
+
+#8 [api internal] load .dockerignore
+#8 transferring context: 131B done
+#8 DONE 0.0s
+
+#9 [web internal] load .dockerignore
+#9 transferring context: 131B done
+#9 DONE 0.0s
+
+#10 [api internal] load build context
+#10 DONE 0.0s
+
+#11 [web internal] load build context
+#11 DONE 0.0s
+
+#12 [api stage-1 1/4] FROM docker.io/library/alpine:3.23@sha256:469c9ea410b9215eaee7976ba6c0639039b444be8e5d638f7abbada189971eb2
+#12 resolve docker.io/library/alpine:3.23@sha256:469c9ea410b9215eaee7976ba6c0639039b444be8e5d638f7abbada189971eb2 0.0s done
+#12 DONE 0.0s
+
+#13 [web build 1/7] FROM docker.io/library/node:24-alpine@sha256:a34ab6d7f6f4813f4d0c5469d74685604b962fbdbf5793a7bc7b4998ecb867c8
+#13 resolve docker.io/library/node:24-alpine@sha256:a34ab6d7f6f4813f4d0c5469d74685604b962fbdbf5793a7bc7b4998ecb867c8 done
+#13 DONE 0.0s
+
+#14 [api build 1/7] FROM docker.io/library/golang:1.26-alpine@sha256:87c65a688975c0b1d4585d204874c45ca78354670e3a5f11368c5a492303d696
+#14 resolve docker.io/library/golang:1.26-alpine@sha256:87c65a688975c0b1d4585d204874c45ca78354670e3a5f11368c5a492303d696 0.0s done
+#14 DONE 0.0s
+
+#15 [web stage-1 1/4] FROM docker.io/library/nginx:stable-alpine@sha256:583b7f2fce1cdb8da5ad5c39ebd3c33b98b87d493190e548bdee1fa8c619c311
+#15 resolve docker.io/library/nginx:stable-alpine@sha256:583b7f2fce1cdb8da5ad5c39ebd3c33b98b87d493190e548bdee1fa8c619c311 0.0s done
+#15 DONE 0.0s
+
+#11 [web internal] load build context
+#11 transferring context: 1.44kB done
+#11 DONE 0.0s
+
+#10 [api internal] load build context
+#10 transferring context: 1.77kB done
+#10 DONE 0.0s
+
+#16 [web build 4/7] COPY package.json pnpm-lock.yaml ./
+#16 CACHED
+
+#17 [web build 5/7] RUN pnpm install --frozen-lockfile
+#17 CACHED
+
+#18 [web build 7/7] RUN pnpm run build
+#18 CACHED
+
+#19 [web build 6/7] COPY . .
+#19 CACHED
+
+#20 [web stage-1 2/4] COPY nginx.conf /etc/nginx/nginx.conf.template
+#20 CACHED
+
+#21 [web build 2/7] WORKDIR /src
+#21 CACHED
+
+#22 [web stage-1 3/4] COPY --chmod=755 docker-entrypoint.sh /usr/local/bin/web-entrypoint.sh
+#22 CACHED
+
+#23 [web build 3/7] RUN npm install --global pnpm@10.12.1
+#23 CACHED
+
+#24 [web stage-1 4/4] COPY --from=build /src/dist /usr/share/nginx/html
+#24 CACHED
+
+#25 [api build 6/7] COPY internal ./internal
+#25 CACHED
+
+#26 [api build 7/7] RUN CGO_ENABLED=0 go build -trimpath -o /out/api ./cmd/api
+#26 CACHED
+
+#27 [api stage-1 3/4] WORKDIR /app
+#27 CACHED
+
+#28 [api build 2/7] WORKDIR /src
+#28 CACHED
+
+#29 [api stage-1 2/4] RUN adduser -D -u 10001 app
+#29 CACHED
+
+#30 [api build 5/7] COPY cmd ./cmd
+#30 CACHED
+
+#31 [api build 3/7] COPY go.mod go.sum ./
+#31 CACHED
+
+#32 [api build 4/7] RUN go mod download
+#32 CACHED
+
+#33 [api stage-1 4/4] COPY --from=build /out/api ./api
+#33 CACHED
+
+#34 [api] exporting to image
+#34 exporting layers done
+#34 exporting manifest sha256:d5a44e7a331f993368db936275ddd5ddce0ed32fc1ae51b497ee37da0e5d1a65 done
+#34 exporting config sha256:c5f5256f8512dd0bb280d5313d784b793faf7ece5161c6dd9fdc461872c5dbf8 done
+#34 exporting attestation manifest sha256:3e80826ee6b2145b6978d459179e2e470f4d3fd3cd2b9434d3d7b65edf9b8cf0 done
+#34 exporting manifest list sha256:81a2e911c889377de06acb7840ff0ca7e800494965685317791c8441805af429 done
+#34 naming to docker.io/library/meli-check-jenkins-meli-entrega2-validacion-local-2-api:latest done
+#34 unpacking to docker.io/library/meli-check-jenkins-meli-entrega2-validacion-local-2-api:latest done
+#34 DONE 0.0s
+
+#35 [web] exporting to image
+#35 exporting layers done
+#35 exporting manifest sha256:da0e19937006e424a339154d2edd20e524c3fda0370ada6738c8fcafdc10716e done
+#35 exporting config sha256:f5bbd2a264a878c10074dd5c3027498e6d003b4fc8dcb7d245059bda708d73b1 done
+#35 exporting attestation manifest sha256:7e6f079bbe31bd092781d52d8de3adc04201b38121c444628c1fd2ce40d753f8 done
+#35 exporting manifest list sha256:23790cd410dea4fc25601c7fcc247d7240cd726dc2f6982d2f196bf9360e391c done
+#35 naming to docker.io/library/meli-check-jenkins-meli-entrega2-validacion-local-2-web:latest done
+#35 unpacking to docker.io/library/meli-check-jenkins-meli-entrega2-validacion-local-2-web:latest done
+#35 DONE 0.1s
+
+#36 [api] resolving provenance for metadata file
+#36 DONE 0.0s
+
+#37 [web] resolving provenance for metadata file
+#37 DONE 0.0s
+ Image meli-check-jenkins-meli-entrega2-validacion-local-2-api Built 
+ Image meli-check-jenkins-meli-entrega2-validacion-local-2-web Built 

@@ -1,9 +1,9 @@
 # Entrega 2 Jenkins
 
-Estado **parcial**, no lista para enviar todavía. Se incluyen [informe editable](Informe_entrega2_Jenkins.docx), [PDF](Informe_entrega2_Jenkins.pdf), [evidencias reales](../../evidence/entrega2/README.md) y [matriz de cumplimiento](../../evidence/entrega2/compliance.json).
+Estado **parcial**, sin push ni envío a Canvas. [Informe editable](Informe_entrega2_Jenkins.docx), [PDF](Informe_entrega2_Jenkins.pdf), [evidencias](../../evidence/entrega2/README.md) y [matriz](../../evidence/entrega2/compliance.json).
 
-Las ocho páginas del PDF se renderizaron desde el DOCX y se revisaron visualmente. Sin desbordamientos ni recortes. Los integrantes deben confirmarse; no se inventaron. El controlador Jenkins está instalado y el agente `docker-local` conectado por WebSocket. Faltan el job, las credenciales SCM autorizadas, ejecutar el pipeline y comprobar el trigger remoto. No se hicieron push ni envío a Canvas.
+Jenkins tiene controlador, agente conectado y credencial SCM utilizada sin revelar su valor. El job `meli-entrega2` está configurado desde GitHub, pero su build1 falla porque el remoto no contiene Jenkinsfile.
 
-La prueba local pasa; no equivale a evidencia de ejecución Jenkins. Antes de entregar, actualizar ambos documentos con las capturas de etapas, consola e historial del build fallido y posterior corregido, más disparo automático observado.
+El job separado `meli-entrega2-validacion-local` probó el candidato ac45ad9: build1 falla de forma controlada y build2 pasa, con ambas imágenes, Go/vet, 7 pruebas frontend y comunicación real. El checkout remoto y el archivo local verificado por hash se mantienen diferenciados. Esto no sustituye la ejecución del Jenkinsfile publicado ni prueba el trigger automático.
 
-La imagen del agente, sus herramientas y el acceso autorizado al motor Docker se comprobaron en contenedores efímeros. El usuario creó el administrador privadamente; el nodo está conectado con un ejecutor y etiqueta `docker` exclusiva.
+Pendientes: integrantes, autorización de publicación y ejecución del job SCM original, disparo automático observado. Los documentos se actualizan con resultados reales; no se garantiza puntuación.
