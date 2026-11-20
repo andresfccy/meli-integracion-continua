@@ -54,3 +54,10 @@ Historical documents are preserved under [archive/](archive/) and must not be us
 - Keep current implementation separate from approved future direction.
 - Move executed plans and deprecated guidance to [archive/](archive/).
 - Update this index whenever documentation paths or authority change.
+
+## Continuous integration delivery
+
+- [CI checks and evidence](development/continuous-integration.md)
+- [Web container runtime](development/container-runtime.md)
+- [Jenkins controller](../infra/jenkins/README.md)
+- [Active delivery log](../odd/tasks/jenkins-entrega2.md)

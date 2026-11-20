@@ -46,3 +46,10 @@ The broad verification set is:
 - Backend: `go test ./...`, `go vet ./...`.
 - Frontend: `corepack pnpm run test`, `corepack pnpm run build`.
 - E2E when relevant: `corepack pnpm run test-e2e`.
+
+## Container and Jenkins delivery
+
+Use [continuous-integration.md](continuous-integration.md) for isolated image builds,
+containerized Go/Vitest checks, communication smoke checks, and genuine evidence collection.
+Run `sh tests/ci-contract.sh`, `sh tests/web-runtime.sh`, and
+`sh tests/jenkins-config.sh` for the associated shell/configuration regression checks.

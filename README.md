@@ -240,3 +240,16 @@ source repository does not require publishing the running application.
 
 No license file is currently included. Public repository visibility alone does
 not grant an open-source license.
+
+## Entrega 2 Jenkins
+
+La configuración y verificación reproducible de integración continua están en
+[la guía de CI](docs/development/continuous-integration.md). El
+[Jenkinsfile](Jenkinsfile) conserva Checkout, Build, Test y post; el
+[controlador Jenkins](infra/jenkins/README.md) usa almacenamiento persistente separado.
+La [configuración del contenedor web](docs/development/container-runtime.md) documenta
+las variables y por qué no corresponde agregar un volumen a la aplicación en memoria.
+
+El [workflow de GitHub Actions](.github/workflows/build-images.yml) construye ambas
+imágenes sin publicarlas. Su ejecución remota y el disparo automático real de Jenkins
+requieren autorización y evidencia; un archivo configurado no equivale a un build ejecutado.
