@@ -8,8 +8,10 @@ ENV VITE_API_MODE=same-origin
 RUN pnpm run build
 
 FROM nginx:stable-alpine@sha256:583b7f2fce1cdb8da5ad5c39ebd3c33b98b87d493190e548bdee1fa8c619c311
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf.template
+COPY --chmod=755 docker-entrypoint.sh /usr/local/bin/web-entrypoint.sh
 COPY --from=build /src/dist /usr/share/nginx/html
+ENV API_UPSTREAM=api:8080
 USER nginx
 EXPOSE 8080
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["/usr/local/bin/web-entrypoint.sh"]

@@ -6,5 +6,6 @@ frontend/vite.config.d.ts
 
 .DS_Store
 .env*
+!.env.example
 frontend/test-results/
 frontend/playwright-report/
